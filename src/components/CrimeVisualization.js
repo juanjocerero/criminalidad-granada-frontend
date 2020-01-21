@@ -33,25 +33,30 @@ const CrimeVisualization = () => {
   const [error, setError] = useState(null);
   
   useEffect(() => {
-    fetchApiEndpoint(queryUrl)
-    .then(response => {
-      if (response.error) {
-        setError(response.error);
-      } else {
-        setState({ crimenes: response.data, isLoading: false });
-      }
-    });
+
+    async function fetchData() {
+      const queryResponse = await fetchApiEndpoint(queryUrl);
+
+      queryResponse.error ? 
+      setError(queryResponse.error) : 
+      setState({ crimenes: queryResponse.data, isLoading: false });
+    }
+
+    fetchData();
+
   }, [queryUrl]);
+
+  console.log(state.crimenes);
   
   if (error) {
     // TODO: crear componente para manejar el error
-    return (<div>error</div>)
+    return (<div className="fullscreen text-center">error</div>)
   }
   
   return (
-    <div className="full-screen">
+    <div className="fullscreen">
     <ClipLoader css = { cssOverride } size = { 60 } color = { '#b90021' } loading = { state.isLoading } />
-    { state.crimenes.map(item => <li key={item._id}>{ item.titular }</li>) }
+    { state.crimenes.map(item => <li style={ { fontSize: '0.8rem' } } key={item._id}>{ item.titular }</li>) }
     </div>
     );
     

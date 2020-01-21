@@ -6,11 +6,11 @@ import Button from '@bit/ans.base-ui.button';
 import * as icons from 'react-icons/fi';
 
 import '../css/Home.scss';
-import '../css/common.scss';
 
 function Home() {
+  
   return (
-    <div className="Home text-center">
+    <div className="Home">
     
     <header>
     <h2 className="app-title">Criminalidad en Granada</h2>
@@ -38,6 +38,7 @@ function Home() {
     
     </div>
     );
+    
   }
   
   export default Home;
