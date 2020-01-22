@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 
 import '../css/common.scss';
 
 // https://cherniavskii.com/using-leaflet-in-react-apps-with-react-hooks/
-const Map = () => {
+const Map = ({ markers }) => {
   
+  const mapRef = useRef(null);
+
   useEffect(() => {
     
-    L.map('map', {
+    mapRef.current = L.map('map', {
       center: [49.8419, 24.0315],
       zoom: 16,
       layers: [
