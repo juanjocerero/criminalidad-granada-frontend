@@ -58,7 +58,7 @@ const CrimeVisualization = () => {
   return (
 
     <Fragment>
-    <div className="fullscreen align-items-center">
+    <div className="fullscreen align-items-center dark-background">
     
     <ClipLoader css = { cssOverride } size = { 60 } color = { '#b90021' } loading = { state.isLoading } />
     
