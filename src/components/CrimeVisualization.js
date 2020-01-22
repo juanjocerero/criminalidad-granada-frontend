@@ -3,6 +3,8 @@ import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
 
+import Map from './Map';
+
 import '../css/common.scss';
 
 const DEFAULT_API_CALL_URL = 'https://ideal-red-lab.dynu.net/api/crimenes';
@@ -31,7 +33,7 @@ const CrimeVisualization = () => {
   const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
   const [state, setState] = useState({ crimenes: [], isLoading: true });
   const [error, setError] = useState(null);
-  
+
   useEffect(() => {
     
     // TODO: refactor this as a Reducer Hook
@@ -50,7 +52,7 @@ const CrimeVisualization = () => {
   console.log(state);
   
   return (
-    
+
     <Fragment>
     <div className="fullscreen align-items-center">
     
@@ -58,9 +60,9 @@ const CrimeVisualization = () => {
     
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
-    
-    { state.crimenes.map(item => <li style={ { fontSize: '0.9rem' } } key={item._id}>{ item.titular }</li>) }
-    
+
+    <Map />
+        
     </div>
     </Fragment>
     
