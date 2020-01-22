@@ -46,7 +46,7 @@ const CrimeVisualization = () => {
     
   }, [queryUrl]);
   
-  console.log(state.crimenes);
+  console.log(state);
   
   return (
     <Fragment>
@@ -54,7 +54,7 @@ const CrimeVisualization = () => {
     
     <ClipLoader css = { cssOverride } size = { 60 } color = { '#b90021' } loading = { state.isLoading } />
     
-    // TODO: crear componente para manejar el error
+    {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
     
     { state.crimenes.map(item => <li style={ { fontSize: '0.9rem' } } key={item._id}>{ item.titular }</li>) }
