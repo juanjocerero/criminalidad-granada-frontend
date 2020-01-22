@@ -50,6 +50,7 @@ const CrimeVisualization = () => {
   console.log(state);
   
   return (
+    
     <Fragment>
     <div className="fullscreen align-items-center">
     
