@@ -7,20 +7,21 @@ import '../css/common.scss';
 const Map = () => {
   
   useEffect(() => {
+    
     L.map('map', {
       center: [49.8419, 24.0315],
       zoom: 16,
       layers: [
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution:
-        '@juanjocerero'
-      }),
-    ]
-  });
-}, []);
-
-return (<div id="map" className="map-container"></div>);
-
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', 
+        {
+          attribution: '@juanjocerero'
+        }),
+      ]
+    });
+  }, []);
+  
+  return (<div id="map" className="map-container"></div>);
+  
 };
 
 export default Map;
