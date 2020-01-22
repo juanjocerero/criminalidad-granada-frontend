@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import 'leaflet/dist/leaflet.css';
 import '../css/CrimeMap.scss';
+import 'magic.css/dist/magic.min.css';
 
 const circleMarkerOptions = {
   radius: 7,
@@ -13,7 +14,7 @@ const circleMarkerOptions = {
   fillOpacity: 0.5,
   // FIXME: This should be set depending on the lugarExacto parameter?
   fillColor: '#b90021',
-  className: 'circle-marker'
+  className: 'circle-marker magictime swashIn'
 };
 
 const getCrimen = async (queryString) => {
@@ -40,7 +41,7 @@ const addMarker = crimen => {
       // FIXME: Color handling should be done here
       ...circleMarkerOptions
     })
-    .bindTooltip(crimen.titular, { className: 'marker-tooltip-window' } )
+    .bindTooltip(crimen.titular, { className: 'marker-tooltip-window ' } )
     
     // We only request the full json object when we're going to display the popup
     marker.addEventListener('click', event => {
