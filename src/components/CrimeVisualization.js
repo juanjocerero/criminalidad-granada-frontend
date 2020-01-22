@@ -3,8 +3,6 @@ import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
 
-import Map from './Map';
-
 import '../css/common.scss';
 
 const DEFAULT_API_CALL_URL = 'https://ideal-red-lab.dynu.net/api/crimenes';
@@ -51,6 +49,10 @@ const CrimeVisualization = () => {
   
   console.log(state);
   
+
+  // https://react-leaflet.js.org/docs/en/components
+  // https://cherniavskii.com/using-leaflet-in-react-apps-with-react-hooks/
+
   return (
 
     <Fragment>
@@ -60,8 +62,6 @@ const CrimeVisualization = () => {
     
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
-
-    <Map />
         
     </div>
     </Fragment>
