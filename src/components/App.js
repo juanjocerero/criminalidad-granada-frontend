@@ -5,6 +5,8 @@ import Home from './Home';
 import CrimeVisualization from './CrimeVisualization';
 import CrimeStats from './CrimeStats';
 
+require('dotenv').config();
+
 function App() {
   return (
     <div className="App">

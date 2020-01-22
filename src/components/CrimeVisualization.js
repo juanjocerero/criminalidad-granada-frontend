@@ -7,15 +7,12 @@ import CrimeMap from './CrimeMap';
 
 import '../css/common.scss';
 
-const DEFAULT_API_CALL_URL = 'https://ideal-red-lab.dynu.net/api/crimenes';
-const DEFAULT_API_CALL_ELEMENT_LIMIT = 50;
 const cssOverride = css`display: block;margin: 0 auto;`;
 
-const getDefaultApiEndpointUrl = () => `${DEFAULT_API_CALL_URL}/limit/${DEFAULT_API_CALL_ELEMENT_LIMIT}`;
+const getDefaultApiEndpointUrl = () => `${process.env.REACT_APP_API_ENDPOINT}${process.env.REACT_APP_DEFAULT_QUERY}`;
 
 const fetchApiEndpoint = async (url) => {
   const response = {};
-  
   try {
     const result = await axios.get(url);
     response.data = result.data;
@@ -24,7 +21,6 @@ const fetchApiEndpoint = async (url) => {
   } finally {
     return response;
   }
-
 };
 
 const CrimeVisualization = () => {
@@ -49,12 +45,6 @@ const CrimeVisualization = () => {
     
   }, [queryUrl]);
   
-  console.log(state);
-  
-
-  // https://react-leaflet.js.org/docs/en/components
-  // https://cherniavskii.com/using-leaflet-in-react-apps-with-react-hooks/
-
   return (
 
     <Fragment>
@@ -65,7 +55,11 @@ const CrimeVisualization = () => {
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
         
-    { !state.isLoading && <CrimeMap /> }
+    { !state.isLoading && <CrimeMap 
+    startPosition={[37.168179, -3.603568]} 
+    startZoom={16} 
+    startCrimenes={state.crimenes}
+    /> }
 
     </div>
     </Fragment>
