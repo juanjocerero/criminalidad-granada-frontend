@@ -3,6 +3,8 @@ import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
 
+import CrimeMap from './CrimeMap';
+
 import '../css/common.scss';
 
 const DEFAULT_API_CALL_URL = 'https://ideal-red-lab.dynu.net/api/crimenes';
@@ -63,6 +65,8 @@ const CrimeVisualization = () => {
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
         
+    <CrimeMap />
+
     </div>
     </Fragment>
     
