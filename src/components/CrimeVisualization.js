@@ -22,7 +22,7 @@ const fetchApiEndpoint = async (url) => {
   } finally {
     return response;
   }
-  
+
 };
 
 const CrimeVisualization = () => {
@@ -34,6 +34,7 @@ const CrimeVisualization = () => {
   
   useEffect(() => {
     
+    // TODO: refactor this as a Reducer Hook
     async function fetchData() {
       const queryResponse = await fetchApiEndpoint(queryUrl);
       
