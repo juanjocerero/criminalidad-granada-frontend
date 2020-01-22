@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+
+import 'leaflet/dist/leaflet.css';
+import '../css/CrimeMap.scss';
 
 const CrimeMap = () => {
   
@@ -7,6 +11,7 @@ const CrimeMap = () => {
   const [zoom, setZoom] = useState(12);
 
   return (
+
     <Map center={position} zoom={zoom}>
     <TileLayer
     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -18,6 +23,7 @@ const CrimeMap = () => {
     </Popup>
     </Marker>
     </Map>
+    
     );  
   };
   

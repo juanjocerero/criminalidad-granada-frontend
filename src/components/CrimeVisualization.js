@@ -65,7 +65,7 @@ const CrimeVisualization = () => {
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
         
-    <CrimeMap />
+    { !state.isLoading && <CrimeMap /> }
 
     </div>
     </Fragment>
