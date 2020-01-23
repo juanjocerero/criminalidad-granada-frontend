@@ -1,0 +1,35 @@
+.leaflet-popup-content-wrapper {
+  border-radius: 0.3rem!important;
+  -webkit-border-radius: 0.3rem!important;
+  -moz-border-radius: 0.3rem!important;
+  -ms-border-radius: 0.3rem!important;
+  -o-border-radius: 0.3rem!important;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip, .ant-card {
+    background: rgb(17, 17, 18)!important;
+    color: white!important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  font: 24px/18px Tahoma, Verdana, sans-serif!important;
+  color: white!important;
+  top: 1px!important;
+  right: 6px!important;
+}
+
+
+.ant-card {
+  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Droid Sans', 'Helvetica Neue', sans-serif!important;
+  min-width: 40vw;
+}
+
+.ant-card-body {
+  padding: .3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .ant-card {
+    min-width: 25vw;
+  }
+}

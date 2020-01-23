@@ -1,3 +1,4 @@
+// TODO: El menú burger y sus eventos deberían ser implementados aquí para pasar props hacia abajo
 import React, { useState, useEffect, Fragment } from 'react';
 import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
@@ -55,7 +56,8 @@ const CrimeVisualization = () => {
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
         
-    { !state.isLoading && <CrimeMap 
+    { !state.isLoading && 
+    <CrimeMap 
     startPosition={[37.168179, -3.603568]} 
     startZoom={16} 
     startCrimenes={state.crimenes}

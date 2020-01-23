@@ -1,0 +1,33 @@
+La librería html-react-parser de momento no se está utilizando
+
+Implementar React Timeline
+https://react-timeline.com/?path=/story/intro--page
+
+Menú hamburguesa para modificar selección del mapa
+  Cada categoría con un switch (https://onsen.io/themeroller/#switch) [https://onsen.io/v2/api/js/ons-switch.html]
+  O botón de guardar o evento de actualización de selección cuando se cierra el menú
+
+Para las estadísticas:
+https://nivo.rocks/
+
+Tutorial de primer uso: (Necesitaría ir con Web Worker activado para no repetir)
+https://github.com/gilbarbara/react-joyride
+
+
+---
+
+# Component Library
+https://onsen.io/theme-roller/
+https://ant.design/docs/react/getting-started
+
+
+---
+# Future Components
+react-custom-scroll
+https://github.com/rommguy/react-custom-scroll
+
+react-burger-menu
+https://github.com/negomi/react-burger-menu
+
+// https://github.com/enaqx/awesome-react
+// https://github.com/brillout/awesome-react-components
