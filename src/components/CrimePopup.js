@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { Card, Typography, Collapse } from 'antd';
 import TimeAgo from 'timeago-react';
 import * as timeago from 'timeago.js';
 import { uuid } from 'uuidv4';
+import { Card, Typography, Collapse } from 'antd';
 import { FaPlus } from 'react-icons/fa';
 
 import PersonaImplicada from './PersonaImplicada';

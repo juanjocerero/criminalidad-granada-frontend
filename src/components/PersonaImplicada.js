@@ -9,20 +9,21 @@ import '../css/PersonaImplicada.scss';
 
 const { Text } = Typography;
 
-
 const PersonaImplicada = ({ nombre, iniciales, sexo, edad, nacionalidad }) => {
   
   const everythingIsNull = every([nombre, iniciales, sexo, edad, nacionalidad], element => (element === null));
   
   return (
-    
     <Fragment>
     
     {
-      everythingIsNull ? 
+      everythingIsNull 
+      
+      ? // If no information on this person is available, we render a simple message
       <div className="no-more-info">
       <Text className="black-text">No hay más información sobre esta persona.</Text>
-      </div> :
+      </div> : 
+      // If there is available informoation, we render it conditionally and in order
       <div className="vertically-align-elements victim-or-detainee">
       
       { sexo && (sexo === 'Hombre' ? 

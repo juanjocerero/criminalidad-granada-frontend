@@ -28,7 +28,7 @@ function Home() {
     </header>
     
     <section className="intro-text">
-    <Title level={4}>Explore los datos</Title>
+    <Title level={4}>Explora los datos</Title>
     </section>
     
     <section className="home-links">
