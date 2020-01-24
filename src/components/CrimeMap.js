@@ -54,7 +54,7 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
   return (
     <Map center={position} zoom={zoom} className="map-container" zoomSnap={0.1} zoomControl={false}>
     
-    <ZoomControl position="topright"></ZoomControl>
+    <ZoomControl position="bottomright"></ZoomControl>
     
     <LayerGroup>
     {/*  We render each marker separately under the LayerGroup */}

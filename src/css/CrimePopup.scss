@@ -1,3 +1,7 @@
+.crimen-popup, .leaflet-popup-content {
+  min-width: 40vw!important;
+}
+
 .leaflet-popup-content-wrapper {
   border-radius: 0.3rem!important;
   -webkit-border-radius: 0.3rem!important;
@@ -7,8 +11,9 @@
 }
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip, .ant-card {
-    background: rgb(17, 17, 18)!important;
-    color: white!important;
+  background: rgb(17, 17, 18)!important;
+  color: white!important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4)!important;
 }
 
 .leaflet-container a.leaflet-popup-close-button {
@@ -18,7 +23,6 @@
   right: 6px!important;
 }
 
-
 .ant-card {
   font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Droid Sans', 'Helvetica Neue', sans-serif!important;
   min-width: 40vw;
@@ -26,6 +30,63 @@
 
 .ant-card-body {
   padding: .3rem;
+}
+
+h4.ant-typography {
+  margin-top: 0.3rem!important;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid white;
+
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+span.ant-typography {
+  color: white;
+}
+
+.crimen-text {
+  border-bottom: 2px solid white;
+  padding-bottom: 0.5rem;
+}
+
+.ant-collapse {
+  border-radius: 0.15rem;
+  -webkit-border-radius: 0.15rem;
+  -moz-border-radius: 0.15rem;
+  -ms-border-radius: 0.15rem;
+  -o-border-radius: 0.15rem;
+
+  border: none;
+}
+
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding-top: 0.4rem;
+  padding-bottom: 0.3rem;
+}
+
+.more-info {
+  // border-top: 2px solid white;
+  padding-top: 0.8rem;
+  font-size: 1rem;
+}
+
+.more-info svg {
+  margin-right: 6px;
+  color: white;
+  width: 18px;
+  height: 18px;
+}
+
+.more-info span {
+  color: white;
+}
+
+.override-underline {
+  text-decoration: none!important;
+  border-bottom: 2px solid #b90021;
+  color: transparent!important;
 }
 
 @media screen and (min-width: 768px) {

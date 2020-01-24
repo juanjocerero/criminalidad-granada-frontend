@@ -14,6 +14,36 @@
   text-align: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .dark-background {
   background-color: #111112;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.black-text {
+  color: black!important;
+}
+
+.vertically-align-elements {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.text-medium {
+  font-weight: 400;
 }

@@ -5,19 +5,30 @@ import Button from '@bit/ans.base-ui.button';
 // eslint-disable-next-line
 import * as icons from 'react-icons/fi';
 
+import { Typography } from 'antd';
+
+import logoSvg from '../img/icono.svg';
 import '../css/Home.scss';
+
+const { Title } = Typography;
 
 function Home() {
   
   return (
     <div className="Home">
     
+    <img 
+    className="logo" 
+    src={logoSvg} 
+    alt="Unas esposas que representan el logo de la aplicación de Criminalidad en Granada" 
+    />
+    
     <header>
-    <h2 className="app-title">Criminalidad en Granada</h2>
+    <Title>Criminalidad en Granada</Title>
     </header>
     
     <section className="intro-text">
-    <p>Explore los datos</p>
+    <Title level={4}>Explore los datos</Title>
     </section>
     
     <section className="home-links">
@@ -42,3 +53,4 @@ function Home() {
   }
   
   export default Home;
+  

@@ -6,6 +6,7 @@ import * as timeago from 'timeago.js';
 import es from 'timeago.js/lib/lang/es';
 
 import '../css/CrimeTooltip.scss';
+import '../css/common.scss';
 
 const CrimeTooltip = ({ text, date }) => {
 
@@ -13,7 +14,7 @@ const CrimeTooltip = ({ text, date }) => {
   
   return (
     <div className="crimen-tooltip-container">
-      <TimeAgo datetime={date} locale="es" className="time-ago" />
+      <TimeAgo datetime={date} locale="es" className="time-ago display-block" />
       { text }
       <div className="more-info">
         (Pinche o pulse para ver más información)

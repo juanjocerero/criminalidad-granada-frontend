@@ -25,6 +25,7 @@
     "timeago-react": "^3.0.0",
     "timeago.js": "^4.0.2",
     "typescript": "^3.7.5",
+    "uuidv4": "^6.0.2",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
