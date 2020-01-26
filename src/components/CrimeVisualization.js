@@ -1,14 +1,10 @@
-// TODO: El menú burger y sus eventos deberían ser implementados aquí para pasar props hacia abajo
-import React, { useState, useEffect, Fragment, useRef, useContext } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
 
 import BurgerMenu from './BurgerMenu';
 import CrimeMap from './CrimeMap';
-
-import { FilterContext } from './FilterContext';
-import { FilterContextProvider } from './FilterContextProvider';
 
 import '../css/common.scss';
 
