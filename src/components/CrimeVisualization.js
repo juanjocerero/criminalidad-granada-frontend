@@ -4,6 +4,7 @@ import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
 
+import BurgerMenu from './BurgerMenu';
 import CrimeMap from './CrimeMap';
 
 import '../css/common.scss';
@@ -30,7 +31,7 @@ const CrimeVisualization = () => {
   const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
   const [state, setState] = useState({ crimenes: [], isLoading: true });
   const [error, setError] = useState(null);
-
+  
   useEffect(() => {
     
     // TODO: refactor this as a Reducer Hook
@@ -47,22 +48,30 @@ const CrimeVisualization = () => {
   }, [queryUrl]);
   
   return (
-
+    
     <Fragment>
-    <div className="fullscreen align-items-center dark-background">
+    <div className="fullscreen dark-background">
     
     <ClipLoader css = { cssOverride } size = { 60 } color = { '#b90021' } loading = { state.isLoading } />
     
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
-        
+    
     { !state.isLoading && 
-    <CrimeMap 
-    startPosition={[37.168179, -3.603568]} 
-    startZoom={16} 
-    startCrimenes={state.crimenes}
-    /> }
 
+      <Fragment>
+      
+      <BurgerMenu id="sidebar" />
+      <CrimeMap 
+      startPosition={[37.168179, -3.603568]} 
+      startZoom={16} 
+      startCrimenes={state.crimenes}
+      />
+      
+      </Fragment>
+      
+    }
+    
     </div>
     </Fragment>
     
