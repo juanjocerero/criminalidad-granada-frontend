@@ -63,14 +63,18 @@ const CrimeVisualization = () => {
     { !state.isLoading && 
 
       <Fragment>
-      
+      <div id="main-visualization-container">
       <BurgerMenu id="sidebar" />
+
+      <main id="page-wrap">
       <CrimeMap 
       startPosition={[37.168179, -3.603568]} 
       startZoom={16} 
       startCrimenes={state.crimenes}
       />
-      
+      </main>
+
+      </div>
       </Fragment>
       
     }
