@@ -19,7 +19,7 @@ const { Panel } = Collapse;
 
 const CrimePopup = ({ crimen }) => {
   timeago.register('es', es);
-  
+
   return (
     <Fragment>
     <Card className="crimen-popup" bordered={false}>

@@ -20,14 +20,16 @@ L.Map.addInitHook(function() {
 });
 
 // Options for the circle marker
-const circleMarkerOptions = {
+// TODO: implement chroma.js scale to discern color by category in a single function call
+const circleMarkerOptions = ({ categorias, lugarExacto }) => ({
   radius: 7,
-  stroke: false,
+  stroke: lugarExacto ? true : false,
+  weight: 3,
+  color: '#92a6a6',
   fillOpacity: 0.6,
-  // FIXME: This should be set depending on the lugarExacto parameter?
   fillColor: '#b90021',
   className: 'circle-marker magictime vanishIn'
-};
+});
 
 const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
   
@@ -59,7 +61,11 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     <LayerGroup>
     {/*  We render each marker separately under the LayerGroup */}
     {crimenes.map(crimen => { return (
-      <CircleMarker key={crimen._id} center={first(crimen.latLng)} { ...circleMarkerOptions }>
+      <CircleMarker 
+      key={crimen._id} 
+      center={first(crimen.latLng)} 
+      { ...circleMarkerOptions(crimen.categorias, crimen.lugarExacto) }
+      >
       
       { /* We only render the tooltip in case of desktop browser. */ }
       {
