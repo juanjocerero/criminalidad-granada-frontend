@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Button from '@bit/ans.base-ui.button';
-// eslint-disable-next-line
-import * as icons from 'react-icons/fi';
 
 import { Typography } from 'antd';
 
