@@ -26,6 +26,8 @@ export const FilterContextProvider = (props) => {
       // TODO: all the information needed about every element
       // should have an Object entry here
       // https://www.youtube.com/watch?v=6uBgda52yEo (16:45)
+      // Then we can call the set Methods either from the onChange
+      // event of each component or during the handleSidebarChanges()
 
       categorias: [categorias,setCategorias],
 
