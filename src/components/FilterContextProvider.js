@@ -8,6 +8,8 @@ export const FilterContextProvider = (props) => {
     <FilterContext.Provider 
     value={{
       isMenuOpen: menuOpenState,
+      // TODO: all the information needed about every element
+      // should have an Object entry here
       toggleMenu: () => {
         setMenuOpenState(!menuOpenState)
       },
