@@ -2,14 +2,14 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { scaleRotate as Menu } from 'react-burger-menu';
 import Button from '@bit/ans.base-ui.button';
 
-import { FilterContext } from './FilterContext';
+import { BurgerMenuContext } from './BurgerMenuContextProvider';
 // import { FilterContextProvider } from './FilterContextProvider';
 
 import '../css/BurgerMenu.scss';
 
 const MenuElements = ({id}) => {
   
-  const context = useContext(FilterContext);
+  const context = useContext(BurgerMenuContext);
   
   const [state, setState] = useState({ shouldUpdateQueries: true });
   

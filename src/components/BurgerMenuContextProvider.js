@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FilterContext, filterContextElements } from './FilterContext';
 
-export const FilterContextProvider = (props) => {
+export const BurgerMenuContext = React.createContext({});
+
+export const BurgerMenuContextProvider = (props) => {
   const [menuOpenState, setMenuOpenState] = useState(false);
   // TODO: all the variables are declared here to be passed around
   // using the same syntax as the above declaration.
@@ -9,7 +10,7 @@ export const FilterContextProvider = (props) => {
   // that will later be retrieved by other components
 
   return (
-    <FilterContext.Provider 
+    <BurgerMenuContext.Provider 
     value={{
       // The next two functions are only related to react-burger-menu.
       isMenuOpen: menuOpenState,
@@ -37,12 +38,10 @@ export const FilterContextProvider = (props) => {
           // https://www.youtube.com/watch?v=6uBgda52yEo
           console.log('Handle logic event');
         }
-      },
-      // TODO: check if this actually works by debugging the component
-      ...filterContextElements 
+      }
     }}>
     { props.children }
-    </FilterContext.Provider>
+    </BurgerMenuContext.Provider>
     );
   };
   

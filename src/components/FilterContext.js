@@ -8,4 +8,3 @@ import React from 'react';
 // TODO: Fill this up with all the possible query elements
 export const filterContextElements = { };
 
-export const FilterContext = React.createContext(filterContextElements);

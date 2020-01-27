@@ -6,7 +6,7 @@ import axios from 'axios';
 import BurgerMenu from './BurgerMenu';
 import CrimeMap from './CrimeMap';
 
-import { FilterContextProvider } from './FilterContextProvider';
+import { BurgerMenuContextProvider } from './BurgerMenuContextProvider';
 
 import '../css/common.scss';
 
@@ -64,7 +64,7 @@ const CrimeVisualization = () => {
 
       <div id="main-visualization-container">
       
-      <FilterContextProvider>
+      <BurgerMenuContextProvider>
       <BurgerMenu id="sidebar" />
 
       <main id="page-wrap">
@@ -74,7 +74,7 @@ const CrimeVisualization = () => {
       startCrimenes={state.crimenes}
       />
       </main>
-      </FilterContextProvider>
+      </BurgerMenuContextProvider>
 
       </div>
 
