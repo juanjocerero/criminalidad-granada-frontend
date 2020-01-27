@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FilterContext } from './FilterContext';
+import { FilterContext, filterContext } from './FilterContext';
 
 export const FilterContextProvider = (props) => {
   const [menuOpenState, setMenuOpenState] = useState(false);
@@ -26,7 +26,9 @@ export const FilterContextProvider = (props) => {
           // https://www.youtube.com/watch?v=6uBgda52yEo
           console.log('Handle logic event');
         }
-      }
+      },
+      // TODO: check if this actually works by debugging the component
+      ...filterContext 
     }}>
     { props.children }
     </FilterContext.Provider>
