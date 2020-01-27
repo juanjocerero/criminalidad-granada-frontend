@@ -25,7 +25,7 @@ const CrimePopup = ({ crimen }) => {
     <Card className="crimen-popup" bordered={false}>
     
     <TimeAgo datetime={crimen.date} locale="es" className="time-ago display-inline-block" />
-    <Text className="time-ago display-inline-block">, en { crimen.municipio }</Text>
+    <Text className="time-ago display-inline-block">, en { crimen.municipio.length > 1 ? crimen.municipio.join(', ') : crimen.municipio }</Text>
     
     <Title level={4}>{ crimen.titular }</Title>
     
