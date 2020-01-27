@@ -15,7 +15,7 @@ const cssOverride = css`display: block;margin: 0 auto;`;
 
 const getDefaultApiEndpointUrl = () => `${process.env.REACT_APP_API_ENDPOINT}${process.env.REACT_APP_DEFAULT_QUERY}`;
 
-const fetchApiEndpoint = async (url) => {
+export const fetchApiEndpoint = async (url) => {
   const response = {};
   try {
     const result = await axios.get(url);
