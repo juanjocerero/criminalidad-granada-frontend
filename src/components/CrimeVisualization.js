@@ -1,12 +1,13 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useContext } from 'react';
 import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
 
+import { QueryContext } from './QueryContext';
+import { BurgerMenuContextProvider } from './BurgerMenuContextProvider';
+
 import BurgerMenu from './BurgerMenu';
 import CrimeMap from './CrimeMap';
-
-import { BurgerMenuContextProvider } from './BurgerMenuContextProvider';
 
 import '../css/common.scss';
 
@@ -26,7 +27,11 @@ const fetchApiEndpoint = async (url) => {
   }
 };
 
-const CrimeVisualization = () => {
+const CrimeVisualization = () => {  
+
+  const { stateCategorias, stateCuerpos, stateMunicipios } = useContext(QueryContext);
+
+  const [categorias, setCategorias] = stateCategorias;
   
   // eslint-disable-next-line no-unused-vars
   const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
@@ -34,7 +39,7 @@ const CrimeVisualization = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    
+
     // TODO: refactor this as a Reducer Hook
     async function fetchData() {
       const queryResponse = await fetchApiEndpoint(queryUrl);
@@ -63,7 +68,7 @@ const CrimeVisualization = () => {
       <Fragment>
 
       <div id="main-visualization-container">
-      
+
       <BurgerMenuContextProvider>
       <BurgerMenu id="sidebar" />
 

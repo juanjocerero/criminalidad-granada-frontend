@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './Home';
-import CrimeVisualization from './CrimeVisualization';
+import CrimeVizContainer from './CrimeVizContainer';
 import CrimeStats from './CrimeStats';
 
 require('dotenv').config();
@@ -13,7 +13,7 @@ function App() {
 
       <Switch>
       <Route path="/" component={Home} exact />
-      <Route path="/map" component={CrimeVisualization} />
+      <Route path="/map" component={CrimeVizContainer} />
       <Route path="/stats" component={CrimeStats} />
       </Switch>
       
