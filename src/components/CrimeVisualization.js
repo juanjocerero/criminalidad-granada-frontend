@@ -51,7 +51,7 @@ const CrimeVisualization = () => {
     <Fragment>
     <div className="fullscreen dark-background">
     
-    <ClipLoader css = { cssOverride } size = { 60 } color = { '#b90021' } loading = { state.isLoading } />
+    <ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={state.isLoading} />
     
     {/* TODO: crear componente para manejar el error */}
     { error && <div>there was an error here...</div> }
