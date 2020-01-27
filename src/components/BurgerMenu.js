@@ -28,6 +28,7 @@ const MenuElements = ({id}) => {
   // We can then pass it up to the Context object, which will trigger the upper
   // CrimeVisualizationComponent with a change to the queryUrl parameter
   // that will fire up an useEffect() that updates the view on the map.
+  // https://www.youtube.com/watch?v=6uBgda52yEo
   
   return (<Menu id={id} pageWrapId={"page-wrap"} outerContainerId={"main-visualization-container"} isOpen={context.isMenuOpen} onStateChange={(state) => { context.stateChangeHandler(state); context.handleSidebarChanges(state); } }>
   
