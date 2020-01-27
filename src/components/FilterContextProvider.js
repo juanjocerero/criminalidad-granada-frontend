@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FilterContext, filterContext } from './FilterContext';
+import { FilterContext, filterContextElements } from './FilterContext';
 
 export const FilterContextProvider = (props) => {
   const [menuOpenState, setMenuOpenState] = useState(false);
@@ -8,8 +8,6 @@ export const FilterContextProvider = (props) => {
   // Then they are all declared in pairs as value of the keys
   // that will later be retrieved by other components
 
-  const [categorias, setCategorias] = useState([]);
-  
   return (
     <FilterContext.Provider 
     value={{
@@ -29,8 +27,6 @@ export const FilterContextProvider = (props) => {
       // Then we can call the set Methods either from the onChange
       // event of each component or during the handleSidebarChanges()
 
-      categorias: [categorias,setCategorias],
-
       handleSidebarChanges: (state) => {
         if (state.shouldUpdateQueries) {
           // TODO: Here we update the state of the main map...
@@ -43,7 +39,7 @@ export const FilterContextProvider = (props) => {
         }
       },
       // TODO: check if this actually works by debugging the component
-      ...filterContext 
+      ...filterContextElements 
     }}>
     { props.children }
     </FilterContext.Provider>

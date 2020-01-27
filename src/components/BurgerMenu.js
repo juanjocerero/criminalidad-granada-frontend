@@ -3,7 +3,7 @@ import { scaleRotate as Menu } from 'react-burger-menu';
 import Button from '@bit/ans.base-ui.button';
 
 import { FilterContext } from './FilterContext';
-import { FilterContextProvider } from './FilterContextProvider';
+// import { FilterContextProvider } from './FilterContextProvider';
 
 import '../css/BurgerMenu.scss';
 
@@ -21,8 +21,9 @@ const MenuElements = ({id}) => {
     });
     
     closeButtonRef.current = closeButton;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  
   // TODO: Every componen introduced between the Menu and the final Apply Changes Button
   // should put its current value into the State object via setState().
   // We can then pass it up to the Context object, which will trigger the upper
@@ -38,6 +39,7 @@ const MenuElements = ({id}) => {
   );
 };
 
-const BurgerMenu = ({ id }) =>  (<FilterContextProvider><MenuElements id={id} /></FilterContextProvider>);
+// const BurgerMenu = ({ id }) =>  (<FilterContextProvider><MenuElements id={id} /></FilterContextProvider>);
+const BurgerMenu = ({ id }) =>  (<MenuElements id={id} />);
 
 export default BurgerMenu;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useContext } from 'react';
 import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
@@ -6,7 +6,11 @@ import axios from 'axios';
 import BurgerMenu from './BurgerMenu';
 import CrimeMap from './CrimeMap';
 
+import { FilterContextProvider } from './FilterContextProvider';
+import { FilterContext } from './FilterContext';
+
 import '../css/common.scss';
+
 
 const cssOverride = css`display: block;margin: 0 auto;`;
 
@@ -30,7 +34,10 @@ const CrimeVisualization = () => {
   const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
   const [state, setState] = useState({ crimenes: [], isLoading: true });
   const [error, setError] = useState(null);
- 
+
+  const categoriasFilter = useContext(FilterContext);
+  console.log('c', categoriasFilter);
+
   useEffect(() => {
     
     // TODO: refactor this as a Reducer Hook
@@ -59,7 +66,10 @@ const CrimeVisualization = () => {
     { !state.isLoading && 
 
       <Fragment>
+
       <div id="main-visualization-container">
+      
+      <FilterContextProvider>
       <BurgerMenu id="sidebar" />
 
       <main id="page-wrap">
@@ -69,8 +79,10 @@ const CrimeVisualization = () => {
       startCrimenes={state.crimenes}
       />
       </main>
+      </FilterContextProvider>
 
       </div>
+
       </Fragment>
       
     }

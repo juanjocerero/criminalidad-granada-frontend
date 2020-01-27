@@ -6,8 +6,6 @@ import React from 'react';
 // in the FilterContextProvider
 
 // TODO: Fill this up with all the possible query elements
-export const filterContext = {
-  categorias: null
-};
+export const filterContextElements = { };
 
-export const FilterContext = React.createContext({ });
+export const FilterContext = React.createContext(filterContextElements);
