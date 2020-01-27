@@ -7,15 +7,19 @@ export const FilterContextProvider = (props) => {
   return (
     <FilterContext.Provider 
     value={{
+      // The next two functions are only related to react-burger-menu.
       isMenuOpen: menuOpenState,
-      // TODO: all the information needed about every element
-      // should have an Object entry here
       toggleMenu: () => {
         setMenuOpenState(!menuOpenState)
       },
       stateChangeHandler: (newState) => {
         setMenuOpenState(newState.isOpen);
       },
+
+      // My logic starts here
+      // TODO: all the information needed about every element
+      // should have an Object entry here
+      
       handleSidebarChanges: (state) => {
         if (state.shouldUpdateQueries) {
           // TODO: Here we update the state of the main map...
