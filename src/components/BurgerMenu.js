@@ -22,6 +22,12 @@ const MenuElements = ({id}) => {
     
     closeButtonRef.current = closeButton;
   }, []);
+
+  // TODO: Every componen introduced between the Menu and the final Apply Changes Button
+  // should put its current value into the State object via setState().
+  // We can then pass it up to the Context object, which will trigger the upper
+  // CrimeVisualizationComponent with a change to the queryUrl parameter
+  // that will fire up an useEffect() that updates the view on the map.
   
   return (<Menu id={id} pageWrapId={"page-wrap"} outerContainerId={"main-visualization-container"} isOpen={context.isMenuOpen} onStateChange={(state) => { context.stateChangeHandler(state); context.handleSidebarChanges(state); } }>
   
