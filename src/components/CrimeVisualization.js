@@ -29,17 +29,17 @@ export const fetchApiEndpoint = async (url) => {
 
 const CrimeVisualization = () => {  
 
-  const { stateCategorias, stateCuerpos, stateMunicipios } = useContext(QueryContext);
+  const { stateSelectedCategories } = useContext(QueryContext);
+  // eslint-disable-next-line no-unused-vars
+  const [selectedCategories, setSelectedCategories] = stateSelectedCategories;
 
-  const [categorias, setCategorias] = stateCategorias;
-  
   // eslint-disable-next-line no-unused-vars
   const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
   const [state, setState] = useState({ crimenes: [], isLoading: true });
   const [error, setError] = useState(null);
-
+  
   useEffect(() => {
-
+    
     // TODO: refactor this as a Reducer Hook
     async function fetchData() {
       const queryResponse = await fetchApiEndpoint(queryUrl);
@@ -64,14 +64,14 @@ const CrimeVisualization = () => {
     { error && <div>there was an error here...</div> }
     
     { !state.isLoading && 
-
+      
       <Fragment>
-
+      
       <div id="main-visualization-container">
-
+      
       <BurgerMenuContextProvider>
       <BurgerMenu id="sidebar" />
-
+      
       <main id="page-wrap">
       <CrimeMap 
       startPosition={[37.168179, -3.603568]} 
@@ -80,9 +80,9 @@ const CrimeVisualization = () => {
       />
       </main>
       </BurgerMenuContextProvider>
-
+      
       </div>
-
+      
       </Fragment>
       
     }

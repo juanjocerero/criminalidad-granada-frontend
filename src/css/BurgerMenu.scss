@@ -39,9 +39,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: rgb(46, 66, 66);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
+}
+
+.bm-menu * {
+  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -62,11 +66,23 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(146, 166, 166, 0.2)!important;
 }
 
 .apply-changes-button {
+  margin: 0 auto;
+  margin-top: 1.5rem;
   padding: 0.4rem 1.5rem;
-  border-radius: 0.2rem;
+  border-radius: 0.15rem!important;
   font-size: .8rem;
+  line-height: 1.2;
+  -webkit-border-radius: 0.15rem!important;
+  -moz-border-radius: 0.15rem!important;
+  -ms-border-radius: 0.15rem!important;
+  -o-border-radius: 0.15rem!important;
+}
+
+.sidebar-title {
+  text-decoration: underline;
+  font-weight: 400;
 }

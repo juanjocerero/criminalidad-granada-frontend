@@ -3,16 +3,13 @@ import React, { useState } from 'react';
 import { QueryContext } from './QueryContext';
 
 const QueryContextProvider = props => {
-  const [categorias, setCategorias] = useState([]);
-  const [cuerpos, setCuerpos] = useState([]);
-
-  const [municipios, setMunicipios] = useState([]); 
+  const [categories, setCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   return (
     <QueryContext.Provider value={{
-      stateCategorias: [categorias, setCategorias],
-      stateCuerpos: [cuerpos, setCuerpos],
-      stateMunicipios: [municipios, setMunicipios]
+      stateCategories: [categories, setCategories],
+      stateSelectedCategories: [selectedCategories, setSelectedCategories]
     }}>
       { props.children }
     </QueryContext.Provider>
