@@ -52,6 +52,11 @@ const CrimeVisualization = () => {
     fetchData();
     
   }, [queryUrl]);
+
+  // This hook should launch every time the selectedCategories global state variable changes
+  useEffect(() => {
+    console.log('selectedCategories changed, rerendering...');
+  }, [selectedCategories]);
   
   return (
     

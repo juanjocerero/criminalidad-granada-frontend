@@ -3,6 +3,7 @@ import { Map, CircleMarker, Popup, LayerGroup, Tooltip, ZoomControl } from 'reac
 import L from 'leaflet';
 import 'leaflet-providers';
 import { first, flattenDeep } from 'lodash';
+import * as boxIntersections from 'box-intersect';
 
 import CrimeTooltip from './CrimeTooltip';
 import CrimePopup from './CrimePopup';
@@ -10,6 +11,7 @@ import CrimePopup from './CrimePopup';
 import 'leaflet/dist/leaflet.css';
 import '../css/CrimeMap.scss';
 import 'magic.css/dist/magic.min.css';
+import '../css/Fades.scss';
 
 const userAgent = window.navigator.userAgent.toLowerCase();
 
@@ -18,6 +20,37 @@ const userAgent = window.navigator.userAgent.toLowerCase();
 L.Map.addInitHook(function() {
   this.getContainer().leafletMap = this;
 });
+
+const getDomElements = () => {
+  const currentPopup = document.querySelector('.crimen-popup');
+  const burgerMenuIcon = document.querySelector('.bm-burger-button');
+  return { currentPopup, burgerMenuIcon };
+};
+
+const getCollisionBounds = (popup, burger) => {
+  const boundingRects = [popup.getBoundingClientRect(), burger.getBoundingClientRect()];
+  return [
+    [boundingRects[0].x + boundingRects[0].y, (boundingRects[0].x + boundingRects[0].width), (boundingRects[0].x + boundingRects[0].height)],
+    [boundingRects[1].x + boundingRects[1].y, (boundingRects[1].x + boundingRects[1].width), (boundingRects[1].x + boundingRects[1].height)],
+  ];
+};
+
+const handleCollision = () => {
+  const collisionInterval = setInterval(() => {
+    let { currentPopup, burgerMenuIcon } = getDomElements();
+    
+    if (currentPopup && burgerMenuIcon) {
+      let collisions = getCollisionBounds(currentPopup, burgerMenuIcon);
+      if (collisions.length && !burgerMenuIcon.classList.contains('fade-out')) {
+        burgerMenuIcon.classList.add('fade-out');
+      }
+    } else {
+      burgerMenuIcon.classList.remove('fade-out');
+      burgerMenuIcon.classList.add('fade-in');
+      clearInterval(collisionInterval);
+    }
+  }, 100);
+};
 
 // Options for the circle marker
 // TODO: implement chroma.js scale to discern color by category in a single function call
@@ -63,7 +96,9 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     {crimenes.map(crimen => { return (
       <CircleMarker 
       key={crimen._id} 
-      center={first(crimen.latLng)} 
+      center={first(crimen.latLng)}
+      popupAnchor={[0, -30]}
+      
       { ...circleMarkerOptions(crimen.categorias, crimen.lugarExacto) }
       >
       
@@ -76,7 +111,7 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
       }
       
       { /* Everyone gets the popup. */ }
-      <Popup className="crimen-popup">
+      <Popup className="crimen-popup" onOpen={handleCollision}>
       <CrimePopup crimen={crimen} />
       </Popup>
       
