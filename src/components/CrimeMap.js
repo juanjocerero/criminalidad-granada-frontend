@@ -3,7 +3,7 @@ import { Map, CircleMarker, Popup, LayerGroup, Tooltip, ZoomControl } from 'reac
 import L from 'leaflet';
 import 'leaflet-providers';
 import { first, flattenDeep } from 'lodash';
-import * as boxIntersections from 'box-intersect';
+import * as boxIntersect from 'box-intersect';
 
 import CrimeTooltip from './CrimeTooltip';
 import CrimePopup from './CrimePopup';
@@ -40,7 +40,7 @@ const handleCollision = () => {
     let { currentPopup, burgerMenuIcon } = getDomElements();
     
     if (currentPopup && burgerMenuIcon) {
-      let collisions = getCollisionBounds(currentPopup, burgerMenuIcon);
+      let collisions = boxIntersect(getCollisionBounds(currentPopup, burgerMenuIcon));
       if (collisions.length && !burgerMenuIcon.classList.contains('fade-out')) {
         burgerMenuIcon.classList.add('fade-out');
       }

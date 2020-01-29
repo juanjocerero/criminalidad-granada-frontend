@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { scaleRotate as Menu } from 'react-burger-menu';
 
 import CategoryTree from './CategoryTree';
+import DateRangePicker from './DatePicker';
 import Button from '@bit/ans.base-ui.button';
 import { Typography } from 'antd';
 
@@ -63,6 +64,8 @@ const MenuElements = ({id}) => {
     <Title level={3} className="white-text text-center sidebar-title">Refina tu búsqueda</Title>
 
     <CategoryTree />
+
+    <DateRangePicker />
 
     <Button loading={false} icon="AlignJustify" size="small" 
     onClick={burgerMenuContext.toggleMenu} className="apply-changes-button">
