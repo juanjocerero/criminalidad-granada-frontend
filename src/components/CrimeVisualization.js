@@ -38,6 +38,7 @@ const CrimeVisualization = () => {
   const [state, setState] = useState({ crimenes: [], isLoading: true });
   const [error, setError] = useState(null);
   
+  // This hook refetches data whenever the queryUrl variable changes
   useEffect(() => {
     
     // TODO: refactor this as a Reducer Hook
@@ -60,7 +61,7 @@ const CrimeVisualization = () => {
   
   return (
     
-    <Fragment>
+    <>
     <div className="fullscreen dark-background">
     
     <ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={state.isLoading} />
@@ -69,34 +70,31 @@ const CrimeVisualization = () => {
     { error && <div>there was an error here...</div> }
     
     { !state.isLoading && 
-      
-      <Fragment>
-      
+            
       <div id="main-visualization-container">
       
       <BurgerMenuContextProvider>
+
       <BurgerMenu id="sidebar" />
       
       <main id="page-wrap">
+
       <CrimeMap 
       startPosition={[37.168179, -3.603568]} 
       startZoom={16} 
       startCrimenes={state.crimenes}
       />
+
       </main>
       </BurgerMenuContextProvider>
       
       </div>
       
-      </Fragment>
-      
     }
     
     </div>
-    </Fragment>
-    
+    </>
     );
-    
   };
   
   export default CrimeVisualization;
