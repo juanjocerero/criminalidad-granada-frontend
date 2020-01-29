@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
