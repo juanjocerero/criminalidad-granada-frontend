@@ -4,8 +4,8 @@
 }
 
 .fade-out {
-  animation: fadeOut .3s normal forwards;
-  -webkit-animation: fadeOut .3s normal forwards;
+  animation: fadeOut .1s normal forwards ease-out;
+  -webkit-animation: fadeOut .1s normal forwards ease-out;
 }
 
 @keyframes fadeIn {
