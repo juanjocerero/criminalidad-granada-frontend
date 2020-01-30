@@ -83,7 +83,6 @@ const CrimeVisualization = () => {
   }, [shouldUpdate]);
   
   return (
-    
     <>
     <div className="fullscreen dark-background">
     
