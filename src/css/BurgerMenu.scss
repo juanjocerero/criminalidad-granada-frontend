@@ -86,3 +86,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
   text-decoration: underline;
   font-weight: 400;
 }
+
+.sidebar-menu-heading {
+  font-weight: 100!important;
+  font-size: 1rem!important;
+}
+
+.sidebar-menu-heading:not(:first-of-type) {
+  padding-top: 0.8rem!important;
+}

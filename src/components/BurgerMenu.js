@@ -63,8 +63,10 @@ const MenuElements = ({id}) => {
     
     <Title level={3} className="white-text text-center sidebar-title">Refina tu búsqueda</Title>
 
+    <Title level={4} className="white-txt text-center sidebar-menu-heading">Por tipo de delito</Title>
     <CategoryTree />
 
+    <Title level={4} className="white-txt text-center sidebar-menu-heading">Por fecha</Title>
     <DateRangePicker />
 
     <Button loading={false} icon="AlignJustify" size="small" 
