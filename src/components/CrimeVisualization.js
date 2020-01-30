@@ -29,35 +29,50 @@ export const fetchApiEndpoint = async (url) => {
 
 const CrimeVisualization = () => {  
 
-  const { stateSelectedCategories } = useContext(QueryContext);
-  // eslint-disable-next-line no-unused-vars
+  const { 
+    stateSelectedCategories,
+    stateCrimenes,
+    stateStartDate,
+    stateEndDate,
+    stateCuerpos,
+    stateMunicipios,
+    stateLugarExacto
+  } = useContext(QueryContext);
+
   const [selectedCategories, setSelectedCategories] = stateSelectedCategories;
+  const [crimenes, setCrimenes] = stateCrimenes;
+  const [startDate, setStartDate] = stateStartDate;
+  const [endDate, setEndDate] = stateEndDate;
+  const [cuerpos, setCuerpos] = stateCuerpos;
+  const [municipios, setMunicipios] = stateMunicipios;
+  const [lugarExacto, setLugarExacto] = stateLugarExacto;
 
   // eslint-disable-next-line no-unused-vars
   const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
   const [state, setState] = useState({ crimenes: [], isLoading: true });
   const [error, setError] = useState(null);
   
-  // This hook refetches data whenever the queryUrl variable changes
+  // This hook should only be used in the first map draw,
+  // resorting later to another hook based on the global State
   useEffect(() => {
     
     // TODO: refactor this as a Reducer Hook
     async function fetchData() {
       const queryResponse = await fetchApiEndpoint(queryUrl);
-      
       queryResponse.error ? 
       setError(queryResponse.error) : 
       setState({ crimenes: queryResponse.data, isLoading: false });
+      setCrimenes(queryResponse.data);
     }
-    
+    console.log('fetching data...');
     fetchData();
     
-  }, [queryUrl]);
+  }, [queryUrl, setCrimenes]);
 
   // This hook should launch every time the selectedCategories global state variable changes
   useEffect(() => {
-    console.log('selectedCategories changed, rerendering...');
-  }, [selectedCategories]);
+    console.log('global state variables changed, rerendering...');
+  }, [selectedCategories, crimenes, startDate, endDate, cuerpos, municipios, lugarExacto]);
   
   return (
     
