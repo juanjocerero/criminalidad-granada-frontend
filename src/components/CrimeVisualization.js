@@ -36,7 +36,8 @@ const CrimeVisualization = () => {
     stateEndDate,
     stateCuerpos,
     stateMunicipios,
-    stateLugarExacto
+    stateLugarExacto,
+    stateShouldUpdate
   } = useContext(QueryContext);
 
   const [selectedCategories, setSelectedCategories] = stateSelectedCategories;
@@ -46,6 +47,7 @@ const CrimeVisualization = () => {
   const [cuerpos, setCuerpos] = stateCuerpos;
   const [municipios, setMunicipios] = stateMunicipios;
   const [lugarExacto, setLugarExacto] = stateLugarExacto;
+  const [shouldUpdate, setShouldUpdate] = stateShouldUpdate;
 
   // eslint-disable-next-line no-unused-vars
   const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
@@ -69,10 +71,16 @@ const CrimeVisualization = () => {
     
   }, [queryUrl, setCrimenes]);
 
-  // This hook should launch every time the selectedCategories global state variable changes
   useEffect(() => {
-    console.log('global state variables changed, rerendering...');
-  }, [selectedCategories, crimenes, startDate, endDate, cuerpos, municipios, lugarExacto]);
+    /*
+    To avoid querying the database too often, we will check
+    if this has changed since the last time we used this.
+    If it doesn't, we just set it to false.
+    */
+    console.log('stateShouldUpdate is now true, rerendering...');
+
+    setShouldUpdate(false);
+  }, [shouldUpdate]);
   
   return (
     

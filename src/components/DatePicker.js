@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { DatePicker } from 'antd';
 import * as moment from 'moment';
 import 'moment/locale/es';
 import locale from 'antd/es/date-picker/locale/es_ES';
 
+import { QueryContext } from './QueryContext';
+
 import '../css/DatePicker.scss';
 
 const DateRangePicker = () => {
+  
+  const { stateStartDate, stateEndDate } = useContext(QueryContext);
+  const [startDate, setStartDate] = stateStartDate;
+  const [endDate, setEndDate] = stateEndDate;
 
   const [startValue, setStartValue] = useState();
   const [endValue, setEndValue] = useState();
@@ -38,9 +44,11 @@ const DateRangePicker = () => {
 
   const onStartChange = value => {
     setStartValue(value);
+    setStartDate(value);
   };
   const onEndChange = value => {
     setEndValue(value);
+    setEndDate(value);
   };
 
   return (

@@ -11,6 +11,15 @@ const QueryContextProvider = props => {
   const [cuerpos, setCuerpos] = useState(['Policía Nacional', 'Policía Local', 'Guardia Civil']);
   const [municipios, setMunicipios] = useState([]);
   const [lugarExacto, setLugarExacto] = useState(false);
+  /*
+  This variable exists so as to not be always queryind the database.
+  This should only be set to true either by the closing event button
+  (and how do we then set it back to false?)
+  or pushing the apply changes button.
+  If we change the value on the fly it is probably going to query
+  the database twice with the same data
+  */
+  const [shouldUpdate, setShouldUpdate] = useState(false);
 
   return (
     <QueryContext.Provider value={{
@@ -21,7 +30,8 @@ const QueryContextProvider = props => {
       stateEndDate: [endDate, setEndDate],
       stateCuerpos: [cuerpos, setCuerpos],
       stateMunicipios: [municipios, setMunicipios],
-      stateLugarExacto: [lugarExacto, setLugarExacto]
+      stateLugarExacto: [lugarExacto, setLugarExacto],
+      stateShouldUpdate: [shouldUpdate, setShouldUpdate]
     }}>
       { props.children }
     </QueryContext.Provider>

@@ -16,23 +16,18 @@ const { Title } = Typography;
 
 const MenuElements = ({id}) => {
   const burgerMenuContext = useContext(BurgerMenuContext);
-  const { stateCategories, stateSelectedCategories } = useContext(QueryContext);
+  const { stateCategories, stateSelectedCategories, stateShouldUpdate } = useContext(QueryContext);
 
-  // eslint-disable-next-line no-unused-vars
   const [categories, setCategories] = stateCategories;
-  // eslint-disable-next-line no-unused-vars
   const [selectedCategories, setSelectedCategories] = stateSelectedCategories;
+  const [shouldUpdate, setShouldUpdate] = stateShouldUpdate;
 
   const closeButtonRef = useRef();
   useEffect(() => {
     const closeButton = document.querySelector('.bm-cross-button button');
     closeButton.addEventListener('click', () => {
-      
-      // TODO: This should do something with the QueryContext 
-      // only if the values provided by the components themselves are outdated
-      
-      console.log(categories);
-      
+      setShouldUpdate(true);
+
     });
     
     closeButtonRef.current = closeButton;
@@ -70,7 +65,10 @@ const MenuElements = ({id}) => {
     <DateRangePicker />
 
     <Button loading={false} icon="AlignJustify" size="small" 
-    onClick={burgerMenuContext.toggleMenu} className="apply-changes-button">
+    onClick={() => {
+      burgerMenuContext.toggleMenu();
+      setShouldUpdate(true);
+    }} className="apply-changes-button">
     Aplicar cambios
     </Button>
     
