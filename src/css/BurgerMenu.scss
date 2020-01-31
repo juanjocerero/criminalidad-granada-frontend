@@ -82,6 +82,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
   -o-border-radius: 0.15rem!important;
 }
 
+h4.ant-typography {
+  margin-top: 0!important;
+  padding-bottom: 0.3rem!important;
+  border-bottom: 1px solid #b90021!important;
+}
+
 .sidebar-title {
   text-decoration: underline;
   font-weight: 400;
@@ -94,4 +100,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .sidebar-menu-heading:not(:first-of-type) {
   padding-top: 0.8rem!important;
+}
+
+.lugar-exacto-only {
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-right: 0.6rem;
+}
+
+.lugar-exacto-container {
+  margin-top: 2rem;
 }

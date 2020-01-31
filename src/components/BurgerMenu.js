@@ -4,6 +4,8 @@ import { scaleRotate as Menu } from 'react-burger-menu';
 import CategoryTree from './CategoryTree';
 import DateRangePicker from './DatePicker';
 import Button from '@bit/ans.base-ui.button';
+import AutoCompleter from './AutoCompleter';
+import Switcher from './Switcher';
 import { Typography } from 'antd';
 
 import { QueryContext } from './QueryContext';
@@ -12,7 +14,7 @@ import { BurgerMenuContext } from './BurgerMenuContextProvider';
 import '../css/BurgerMenu.scss';
 import '../css/common.scss';
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const MenuElements = ({id}) => {
   const burgerMenuContext = useContext(BurgerMenuContext);
@@ -58,11 +60,19 @@ const MenuElements = ({id}) => {
     
     <Title level={3} className="white-text text-center sidebar-title">Refina tu búsqueda</Title>
 
-    <Title level={4} className="white-txt text-center sidebar-menu-heading">Por tipo de delito</Title>
+    <Title level={4} className="white-text text-center sidebar-menu-heading">Por tipo de delito</Title>
     <CategoryTree />
 
-    <Title level={4} className="white-txt text-center sidebar-menu-heading">Por fecha</Title>
+    <Title level={4} className="white-text text-center sidebar-menu-heading">Por fecha</Title>
     <DateRangePicker />
+
+    <Title level={4} className="white-text text-center sidebar-menu-heading">Por municipio</Title>
+    <AutoCompleter />
+
+    <div className="lugar-exacto-container align-items-center center-elements text-center">
+    <Text className="lugar-exacto-only">Sólo con localización exacta</Text>
+    <Switcher style={{ display: "inline-block" }} />
+    </div>
 
     <Button loading={false} icon="AlignJustify" size="small" 
     onClick={() => {

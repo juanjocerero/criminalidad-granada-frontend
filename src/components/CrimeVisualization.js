@@ -71,6 +71,7 @@ const CrimeVisualization = () => {
     
   }, [queryUrl, setCrimenes]);
 
+  // https://stackoverflow.com/questions/55823296/reactjs-prevstate-in-the-new-usestate-react-hook
   useEffect(() => {
     /*
     To avoid querying the database too often, we will check
