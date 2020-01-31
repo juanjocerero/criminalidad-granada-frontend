@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { scaleRotate as Menu } from 'react-burger-menu';
+import { Typography } from 'antd';
 
 import CategoryTree from './CategoryTree';
 import DateRangePicker from './DatePicker';
-import Button from '@bit/ans.base-ui.button';
-import AutoCompleter from './AutoCompleter';
+import MunicipioSelect from './MunicipioSelect';
 import Switcher from './Switcher';
-import { Typography } from 'antd';
+import Button from '@bit/ans.base-ui.button';
+
 
 import { QueryContext } from './QueryContext';
 import { BurgerMenuContext } from './BurgerMenuContextProvider';
@@ -67,7 +68,7 @@ const MenuElements = ({id}) => {
     <DateRangePicker />
 
     <Title level={4} className="white-text text-center sidebar-menu-heading">Por municipio</Title>
-    <AutoCompleter />
+    <MunicipioSelect />
 
     <div className="lugar-exacto-container align-items-center center-elements text-center">
     <Text className="lugar-exacto-only">Sólo con localización exacta</Text>

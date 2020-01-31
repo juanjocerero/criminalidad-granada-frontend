@@ -4,6 +4,8 @@ import { Switch, Icon } from 'antd';
 
 import { QueryContext } from './QueryContext';
 
+import '../css/Switcher.scss';
+
 const Switcher = () => {
 
   const { stateLugarExacto } = useContext(QueryContext);
@@ -14,6 +16,7 @@ const Switcher = () => {
     checkedChildren={<Icon type="check" />} 
     unCheckedChildren={<Icon type="close" />} 
     onChange={(checked, event) => setLugarExacto(checked)}
+    defaultChecked
     />
   );
 

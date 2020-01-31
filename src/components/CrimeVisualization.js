@@ -44,7 +44,6 @@ const CrimeVisualization = () => {
   const [crimenes, setCrimenes] = stateCrimenes;
   const [startDate, setStartDate] = stateStartDate;
   const [endDate, setEndDate] = stateEndDate;
-  const [cuerpos, setCuerpos] = stateCuerpos;
   const [municipios, setMunicipios] = stateMunicipios;
   const [lugarExacto, setLugarExacto] = stateLugarExacto;
   const [shouldUpdate, setShouldUpdate] = stateShouldUpdate;
@@ -66,7 +65,7 @@ const CrimeVisualization = () => {
       setState({ crimenes: queryResponse.data, isLoading: false });
       setCrimenes(queryResponse.data);
     }
-    console.log('fetching data...');
+
     fetchData();
     
   }, [queryUrl, setCrimenes]);
@@ -79,7 +78,21 @@ const CrimeVisualization = () => {
     If it doesn't, we just set it to false.
     */
     console.log('stateShouldUpdate is now true, rerendering...');
+    async function fetchData() {
+      const queryResponse = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/filter`, {
+        params: {
+          categorias: JSON.stringify(selectedCategories),
+          startDate,
+          endDate,
+          municipios,
+          lugarExacto
+        }
+      });
 
+      console.log(queryResponse);
+    }
+
+    fetchData();
     setShouldUpdate(false);
   }, [shouldUpdate]);
   
