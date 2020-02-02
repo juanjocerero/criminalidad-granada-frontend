@@ -103,6 +103,7 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
       >
       
       { /* We only render the tooltip in case of desktop browser. */ }
+      {/* TODO: este tooltip se está renderizando en móviles */}
       {
         (!L.Browser.touch || !/iphone|ipod|ipad/.test(userAgent)) && 
         <Tooltip className="crimen-tooltip" offset={[10, 0]}>
