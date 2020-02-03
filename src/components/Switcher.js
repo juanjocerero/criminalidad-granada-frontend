@@ -16,6 +16,7 @@ const Switcher = () => {
     checkedChildren={<Icon type="check" />} 
     unCheckedChildren={<Icon type="close" />} 
     onChange={(checked, event) => setLugarExacto(checked)}
+    checked={lugarExacto}
     defaultChecked
     />
   );

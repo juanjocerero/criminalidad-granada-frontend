@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import { Map, CircleMarker, Popup, LayerGroup, Tooltip, ZoomControl } from 'react-leaflet';
 import L, { Marker } from 'leaflet';
 import 'leaflet-providers';
@@ -9,6 +9,8 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import CrimeTooltip from './CrimeTooltip';
 import CrimePopup from './CrimePopup';
 
+import { QueryContext } from './QueryContext';
+
 import 'leaflet/dist/leaflet.css';
 import '../css/CrimeMap.scss';
 import 'magic.css/dist/magic.min.css';
@@ -18,8 +20,6 @@ import '../css/MarkerClusters.scss';
 
 const userAgent = window.navigator.userAgent.toLowerCase();
 
-// This allows to acess the Leaflet Map Object from the react-leaflet Map component
-// https://github.com/Leaflet/Leaflet/issues/6298
 L.Map.addInitHook(function() {
   this.getContainer().leafletMap = this;
 });
@@ -91,8 +91,10 @@ const createClusterCustomIcon = (cluster) => {
 const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
   
   const [position, setPosition] = useState(startPosition ? startPosition : [49.8419, 24.0315]);
-  const [zoom, setZoom] = useState(startZoom ? startZoom : 16);
-  const [crimenes, setCrimenes] = useState(startCrimenes ? startCrimenes : []);
+  const [zoom, setZoom] = useState(startZoom ? startZoom : 14);
+
+  const { stateCrimenes } = useContext(QueryContext);
+  const [crimenes, setCrimenes] = stateCrimenes;
   
   // mapRef.current will contain the L.map object after the first useEffect() call
   const mapRef = useRef();
@@ -105,9 +107,13 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     L.tileLayer.provider('CartoDB.VoyagerLabelsUnder').addTo(mapRef.current);
   }, []);
   
+  // TODO: CHECK THIS OUT!!
+
   // This hook is responsible of repositioning the map when the array of markers changes
   useEffect(() => {
-    mapRef.current.fitBounds(flattenDeep(crimenes.map(v => v.latLng)), { padding: [20, 20] });
+    if (crimenes.length) {
+      mapRef.current.fitBounds(flattenDeep(crimenes.map(v => v.latLng)), { padding: [20, 20] });
+    }
   }, [crimenes]);
   
   return (
@@ -120,7 +126,8 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     <MarkerClusterGroup 
     spiderLegPolylineOptions={{ weight: 0, opacity: 0 }} 
     iconCreateFunction={createClusterCustomIcon} 
-    maxClusterRadius={60}>
+    maxClusterRadius={60}
+    showCoverageOnHover={false}>
 
     {crimenes.map(crimen => { return (
       <CircleMarker 
@@ -132,7 +139,6 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
       >
       
       { /* We only render the tooltip in case of desktop browser. */ }
-      {/* TODO: este tooltip se está renderizando en móviles */}
       {
         (!L.Browser.touch && !/iphone|ipod|ipad/.test(userAgent)) && 
         <Tooltip className="crimen-tooltip" offset={[10, 0]}>

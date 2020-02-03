@@ -34,54 +34,30 @@ const CrimeVisualization = () => {
     stateCrimenes,
     stateStartDate,
     stateEndDate,
-    stateCuerpos,
     stateMunicipios,
     stateLugarExacto,
-    stateShouldUpdate
+    stateShouldUpdate,
+    stateIsLoading
   } = useContext(QueryContext);
 
-  const [selectedCategories, setSelectedCategories] = stateSelectedCategories;
+  const [selectedCategories] = stateSelectedCategories;
   const [crimenes, setCrimenes] = stateCrimenes;
-  const [startDate, setStartDate] = stateStartDate;
-  const [endDate, setEndDate] = stateEndDate;
-  const [municipios, setMunicipios] = stateMunicipios;
+  const [startDate] = stateStartDate;
+  const [endDate] = stateEndDate;
+  const [municipios] = stateMunicipios;
   const [lugarExacto, setLugarExacto] = stateLugarExacto;
   const [shouldUpdate, setShouldUpdate] = stateShouldUpdate;
-
-  // eslint-disable-next-line no-unused-vars
-  const [queryUrl, setQueryUrl] = useState(getDefaultApiEndpointUrl());
-  const [state, setState] = useState({ crimenes: [], isLoading: true });
-  const [error, setError] = useState(null);
-  
-  // This hook should only be used in the first map draw,
-  // resorting later to another hook based on the global State
-  useEffect(() => {
-    
-    // TODO: refactor this as a Reducer Hook
-    async function fetchData() {
-      const queryResponse = await fetchApiEndpoint(queryUrl);
-      queryResponse.error ? 
-      setError(queryResponse.error) : 
-      setState({ crimenes: queryResponse.data, isLoading: false });
-      setCrimenes(queryResponse.data);
-    }
-
-    fetchData();
-    
-  }, [queryUrl, setCrimenes]);
+  const [isLoading, setIsLoading] = stateIsLoading;
 
   // https://stackoverflow.com/questions/55823296/reactjs-prevstate-in-the-new-usestate-react-hook
   useEffect(() => {
-    /*
-    To avoid querying the database too often, we will check
-    if this has changed since the last time we used this.
-    If it doesn't, we just set it to false.
-    */
-    console.log('stateShouldUpdate is now true, rerendering...');
+
     async function fetchData() {
+      setIsLoading(true);
+
       const queryResponse = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/filter`, {
         params: {
-          categorias: JSON.stringify(selectedCategories),
+          categorias: selectedCategories ? JSON.stringify(selectedCategories) : null,
           startDate,
           endDate,
           municipios,
@@ -89,7 +65,12 @@ const CrimeVisualization = () => {
         }
       });
 
-      console.log(queryResponse);
+      if (!queryResponse.error) {
+        setCrimenes(queryResponse.data.crimenes);
+        setIsLoading(false);
+      }
+
+      console.log(queryResponse.data);
     }
 
     fetchData();
@@ -100,12 +81,12 @@ const CrimeVisualization = () => {
     <>
     <div className="fullscreen dark-background">
     
-    <ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={state.isLoading} />
+    <ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} />
     
     {/* TODO: crear componente para manejar el error */}
-    { error && <div>there was an error here...</div> }
+    {/* { error && <div>there was an error here...</div> } */}
     
-    { !state.isLoading && 
+    { !isLoading && 
             
       <div id="main-visualization-container">
       
@@ -118,7 +99,7 @@ const CrimeVisualization = () => {
       <CrimeMap 
       startPosition={[37.168179, -3.603568]} 
       startZoom={16} 
-      startCrimenes={state.crimenes}
+      startCrimenes={crimenes}
       />
 
       </main>

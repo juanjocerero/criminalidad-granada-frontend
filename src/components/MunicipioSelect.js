@@ -36,7 +36,7 @@ const MunicipioSelect = () => {
     mode="multiple" 
     className="municipio-select" 
     placeholder="Escoge municipio(s)" 
-    defaultValue={[]} 
+    defaultValue={municipios}
     onChange={handleChange}>
       { availableMunicipios }
     </Select>

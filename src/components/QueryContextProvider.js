@@ -10,7 +10,9 @@ const QueryContextProvider = props => {
   const [endDate, setEndDate] = useState(null);
   const [cuerpos, setCuerpos] = useState(['Policía Nacional', 'Policía Local', 'Guardia Civil']);
   const [municipios, setMunicipios] = useState([]);
-  const [lugarExacto, setLugarExacto] = useState(false);
+  const [lugarExacto, setLugarExacto] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(true);
   /*
   This variable exists so as to not be always queryind the database.
   This should only be set to true either by the closing event button
@@ -31,7 +33,8 @@ const QueryContextProvider = props => {
       stateCuerpos: [cuerpos, setCuerpos],
       stateMunicipios: [municipios, setMunicipios],
       stateLugarExacto: [lugarExacto, setLugarExacto],
-      stateShouldUpdate: [shouldUpdate, setShouldUpdate]
+      stateShouldUpdate: [shouldUpdate, setShouldUpdate],
+      stateIsLoading: [isLoading, setIsLoading]
     }}>
       { props.children }
     </QueryContext.Provider>
