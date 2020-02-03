@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Map, CircleMarker, Popup, LayerGroup, Tooltip, ZoomControl } from 'react-leaflet';
-import L from 'leaflet';
+import L, { Marker } from 'leaflet';
 import 'leaflet-providers';
 import { first, flattenDeep } from 'lodash';
 import * as boxIntersect from 'box-intersect';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 
 import CrimeTooltip from './CrimeTooltip';
 import CrimePopup from './CrimePopup';
@@ -12,6 +13,8 @@ import 'leaflet/dist/leaflet.css';
 import '../css/CrimeMap.scss';
 import 'magic.css/dist/magic.min.css';
 import '../css/Fades.scss';
+import 'react-leaflet-markercluster/dist/styles.min.css';
+import '../css/MarkerClusters.scss';
 
 const userAgent = window.navigator.userAgent.toLowerCase();
 
@@ -59,10 +62,31 @@ const circleMarkerOptions = ({ categorias, lugarExacto }) => ({
   stroke: lugarExacto ? true : false,
   weight: 3,
   color: '#92a6a6',
-  fillOpacity: 0.6,
+  fillOpacity: 0.7,
   fillColor: '#b90021',
   className: 'circle-marker magictime vanishIn'
 });
+
+const createClusterCustomIcon = (cluster) => {
+  const elements = cluster.getChildCount();
+  let sizeClass = 'sm';
+
+  if (elements >= 5 && elements < 10) {
+    sizeClass = 'md';
+  }
+  if (elements > 10) {
+    sizeClass = 'lg';
+  }
+  
+  return L.divIcon({
+    html:
+    `<div>
+    <span class="markerClusterLabel">${elements}</span>
+    </div>`,
+    iconSize: L.point(64, 64, true),
+    className: `cluster-${sizeClass}`
+  });
+};
 
 const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
   
@@ -92,7 +116,12 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     <ZoomControl position="bottomright"></ZoomControl>
     
     <LayerGroup>
-    {/*  We render each marker separately under the LayerGroup */}
+    
+    <MarkerClusterGroup 
+    spiderLegPolylineOptions={{ weight: 0, opacity: 0 }} 
+    iconCreateFunction={createClusterCustomIcon} 
+    maxClusterRadius={60}>
+
     {crimenes.map(crimen => { return (
       <CircleMarker 
       key={crimen._id} 
@@ -119,6 +148,9 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
       </CircleMarker>)
     })
   }
+  </MarkerClusterGroup>
+  
+  
   </LayerGroup>
   
   </Map>

@@ -22,30 +22,29 @@
   font-size: 1rem;
   line-height: 1.3rem;
   font-weight: 400;
-
+  
   max-width: 80vw;
   min-width: 25vw;
   
   white-space: normal;
   overflow-wrap: normal;
-
+  
   padding: .7rem;
-
+  
   background-color: #111112;
   border: none;
   color: white;
 }
 
-.leaflet-tooltip-top:before,
-.leaflet-tooltip-bottom:before,
-.leaflet-tooltip-left:before,
-.leaflet-tooltip-right:before {
-	position: absolute;
-	pointer-events: none;
-	border: 6px solid transparent;
-	background: '#111112';
-	content: "";
-	}
+.leaflet-tooltip-top:before, .leaflet-tooltip-bottom:before, .leaflet-tooltip-left:before, .leaflet-tooltip-right:before {
+  position: absolute;
+  pointer-events: none;
+  border: 6px solid transparent;
+  background: '#111112';
+  content: "";
+}
+
+
 
 @media screen and (max-width: 768px) {
   .crimen-tooltip {
