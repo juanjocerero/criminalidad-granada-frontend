@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
@@ -49,21 +49,24 @@ const CrimeVisualization = () => {
   const [shouldUpdate, setShouldUpdate] = stateShouldUpdate;
   const [isLoading, setIsLoading] = stateIsLoading;
 
+  const switcherRef = useRef();
+
   // https://stackoverflow.com/questions/55823296/reactjs-prevstate-in-the-new-usestate-react-hook
   useEffect(() => {
 
     async function fetchData() {
       setIsLoading(true);
+      const params = {
+        categorias: selectedCategories ? JSON.stringify(selectedCategories) : null,
+        startDate,
+        endDate,
+        municipios,
+        lugarExacto
+      };
 
-      const queryResponse = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/filter`, {
-        params: {
-          categorias: selectedCategories ? JSON.stringify(selectedCategories) : null,
-          startDate,
-          endDate,
-          municipios,
-          lugarExacto
-        }
-      });
+      console.log(params);
+
+      const queryResponse = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/filter`, { params });
 
       if (!queryResponse.error) {
         setCrimenes(queryResponse.data.crimenes);

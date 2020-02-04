@@ -13,6 +13,7 @@ const Switcher = () => {
 
   return (
     <Switch 
+    id="switcher"
     checkedChildren={<Icon type="check" />} 
     unCheckedChildren={<Icon type="close" />} 
     onChange={(checked, event) => setLugarExacto(checked)}

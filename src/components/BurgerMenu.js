@@ -19,18 +19,18 @@ const { Title, Text } = Typography;
 
 const MenuElements = ({id}) => {
   const burgerMenuContext = useContext(BurgerMenuContext);
-  const { stateCategories, stateSelectedCategories, stateShouldUpdate } = useContext(QueryContext);
+  const { stateCategories, stateSelectedCategories, stateShouldUpdate, stateLugarExacto } = useContext(QueryContext);
 
   const [categories, setCategories] = stateCategories;
   const [selectedCategories, setSelectedCategories] = stateSelectedCategories;
   const [shouldUpdate, setShouldUpdate] = stateShouldUpdate;
+  const [lugarExacto, setLugarExacto] = stateLugarExacto;
 
   const closeButtonRef = useRef();
   useEffect(() => {
     const closeButton = document.querySelector('.bm-cross-button button');
     closeButton.addEventListener('click', () => {
       setShouldUpdate(true);
-
     });
     
     closeButtonRef.current = closeButton;
