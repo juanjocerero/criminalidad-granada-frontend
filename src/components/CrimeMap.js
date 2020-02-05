@@ -55,6 +55,38 @@ const handleCollision = () => {
   }, 100);
 };
 
+const handleCategoryColor = categories => {
+  console.log(categories);
+  if (categories) {
+    let color = '#926a6';
+
+    if (categories.includes('Robo')) {
+      color = '#b90021';
+    }
+    if (categories.includes('Asesinato')) {
+      color = '#00272b';
+    }
+    if (categories.includes('Delito sexual')) {
+      color = '#ff6663';
+    }
+    if (categories.includes('Estafa')) {
+      color = '#e6aa68';
+    }
+    if (categories.includes('Seguridad vial')) {
+      color = '#59656f';
+    }
+    if (categories.includes('Tráfico de drogas')) {
+      color = '03cea4';
+    }
+    if (categories.includes('Violencia de Género')) {
+      color = '#665607';
+    }
+  
+    return color;
+  }
+  
+};
+
 // Options for the circle marker
 // TODO: implement chroma.js scale to discern color by category in a single function call
 const circleMarkerOptions = ({ categorias, lugarExacto }) => ({
@@ -63,7 +95,7 @@ const circleMarkerOptions = ({ categorias, lugarExacto }) => ({
   weight: 3,
   color: '#92a6a6',
   fillOpacity: 0.7,
-  fillColor: '#b90021',
+  fillColor: handleCategoryColor(categorias),
   className: 'circle-marker magictime vanishIn'
 });
 
@@ -128,7 +160,8 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     iconCreateFunction={createClusterCustomIcon} 
     maxClusterRadius={60}
     showCoverageOnHover={false}>
-
+    
+    // TODO: fix colors
     {crimenes.map(crimen => { return (
       <CircleMarker 
       key={crimen._id} 
