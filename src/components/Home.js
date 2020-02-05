@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import Button from '@bit/ans.base-ui.button';
 
 import { Typography } from 'antd';

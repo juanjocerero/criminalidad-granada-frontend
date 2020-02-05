@@ -58,7 +58,7 @@ const DateRangePicker = () => {
     locale={locale} 
     disabledDate={disabledStartDate} 
     format="DD/MM/YYYY" 
-    value={startValue}
+    value={startDate}
     placeholder="Inicio" 
     onChange={onStartChange} 
     onOpenChange={handleStartOpenChange} 
@@ -69,7 +69,7 @@ const DateRangePicker = () => {
     locale={locale} 
     disabledDate={disabledEndDate} 
     format="DD/MM/YYYY" 
-    value={endValue} 
+    value={endDate} 
     placeholder="Final" 
     onChange={onEndChange} 
     onOpenChange={handleEndOpenChange} 
