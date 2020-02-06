@@ -67,8 +67,7 @@ const handleCategoryColor = categories => {
   return color;
 }
 
-// Options for the circle marker
-// TODO: implement chroma.js scale to discern color by category in a single function call
+// TODO: add bright stroke in case of not exact place
 const circleMarkerOptions = ( categorias, lugarExacto ) => ({
   radius: 7,
   stroke: lugarExacto ? true : false,
