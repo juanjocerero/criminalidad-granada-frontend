@@ -8,8 +8,10 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 
 import CrimeTooltip from './CrimeTooltip';
 import CrimePopup from './CrimePopup';
+import CategoriesControl from './CategoriesControl';
 
 import { QueryContext } from './QueryContext';
+import { categoriesColors } from '../Resources/Colors';
 
 import 'leaflet/dist/leaflet.css';
 import '../css/CrimeMap.scss';
@@ -56,45 +58,23 @@ const handleCollision = () => {
 };
 
 const handleCategoryColor = categories => {
-  console.log(categories);
-  if (categories) {
-    let color = '#926a6';
-
-    if (categories.includes('Robo')) {
-      color = '#b90021';
+  let color = '#92a6a6';
+  for (let category of categories) {
+    if (categoriesColors[category]) {
+      color = categoriesColors[category];
     }
-    if (categories.includes('Asesinato')) {
-      color = '#00272b';
-    }
-    if (categories.includes('Delito sexual')) {
-      color = '#ff6663';
-    }
-    if (categories.includes('Estafa')) {
-      color = '#e6aa68';
-    }
-    if (categories.includes('Seguridad vial')) {
-      color = '#59656f';
-    }
-    if (categories.includes('Tráfico de drogas')) {
-      color = '03cea4';
-    }
-    if (categories.includes('Violencia de Género')) {
-      color = '#665607';
-    }
-  
-    return color;
   }
-  
-};
+  return color;
+}
 
 // Options for the circle marker
 // TODO: implement chroma.js scale to discern color by category in a single function call
-const circleMarkerOptions = ({ categorias, lugarExacto }) => ({
+const circleMarkerOptions = ( categorias, lugarExacto ) => ({
   radius: 7,
   stroke: lugarExacto ? true : false,
   weight: 3,
-  color: '#92a6a6',
-  fillOpacity: 0.7,
+  color: 'transparent',
+  fillOpacity: 0.8,
   fillColor: handleCategoryColor(categorias),
   className: 'circle-marker magictime vanishIn'
 });
@@ -152,6 +132,7 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     <Map center={position} zoom={zoom} className="map-container" zoomSnap={0.1} zoomControl={false}>
     
     <ZoomControl position="bottomright"></ZoomControl>
+    <CategoriesControl categories={categoriesColors} />
     
     <LayerGroup>
     
@@ -161,7 +142,6 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
     maxClusterRadius={60}
     showCoverageOnHover={false}>
     
-    // TODO: fix colors
     {crimenes.map(crimen => { return (
       <CircleMarker 
       key={crimen._id} 
