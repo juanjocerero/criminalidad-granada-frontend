@@ -16,9 +16,7 @@ export const BurgerMenuContextProvider = (props) => {
       stateChangeHandler: (newState) => {
         setMenuOpenState(newState.isOpen);
       },
-
-      // This holds the available fields for a single Crimen object
-      // so we can populate the sidebar
+      
       stateFields: [fields, setFields]
     }}>
     { props.children }

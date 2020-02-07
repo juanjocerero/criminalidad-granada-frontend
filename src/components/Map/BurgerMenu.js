@@ -8,23 +8,20 @@ import MunicipioSelect from './MunicipioSelect';
 import Switcher from './Switcher';
 import Button from '@bit/ans.base-ui.button';
 
-
 import { QueryContext } from './QueryContext';
 import { BurgerMenuContext } from './BurgerMenuContextProvider';
 
-import '../css/BurgerMenu.scss';
-import '../css/common.scss';
+import '../../css/Map/BurgerMenu.scss';
+import '../../css/common.scss';
 
 const { Title, Text } = Typography;
 
 const MenuElements = ({id}) => {
   const burgerMenuContext = useContext(BurgerMenuContext);
-  const { stateCategories, stateSelectedCategories, stateShouldUpdate, stateLugarExacto } = useContext(QueryContext);
+  const { stateShouldUpdate } = useContext(QueryContext);
 
-  const [categories, setCategories] = stateCategories;
-  const [selectedCategories, setSelectedCategories] = stateSelectedCategories;
+  // eslint-disable-next-line no-unused-vars
   const [shouldUpdate, setShouldUpdate] = stateShouldUpdate;
-  const [lugarExacto, setLugarExacto] = stateLugarExacto;
 
   const closeButtonRef = useRef();
   useEffect(() => {
@@ -44,13 +41,6 @@ const MenuElements = ({id}) => {
       defaultFocusedElement.focus();
     }
   }, []);
-  
-  // TODO: Every componen introduced between the Menu and the final Apply Changes Button
-  // should put its current value into the State object via setState().
-  // We can then pass it up to the Context object, which will trigger the upper
-  // CrimeVisualizationComponent with a change to the queryUrl parameter
-  // that will fire up an useEffect() that updates the view on the map.
-  // https://www.youtube.com/watch?v=6uBgda52yEo
   
   return (<Menu id={id} 
     disableAutoFocus 

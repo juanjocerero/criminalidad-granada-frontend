@@ -5,7 +5,7 @@ import { fetchApiEndpoint } from './CrimeVisualization';
 
 import { QueryContext } from './QueryContext';
 
-import '../css/MunicipioSelect.scss';
+import '../../css/Map/MunicipioSelect.scss';
 
 const { Option } = Select;
 

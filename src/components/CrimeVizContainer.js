@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CrimeVisualization from './CrimeVisualization';
+import CrimeVisualization from './Map/CrimeVisualization';
 
-import QueryContextProvider from './QueryContextProvider';
+import QueryContextProvider from './Map/QueryContextProvider';
 
 const CrimeVizContainer = () => {
 

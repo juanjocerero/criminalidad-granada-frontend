@@ -10,9 +10,9 @@ import PersonaImplicada from './PersonaImplicada';
 // https://github.com/hustcc/timeago-react/issues/27
 import es from 'timeago.js/lib/lang/es';
 
-import '../css/CrimePopup.scss';
-import '../css/CrimeTooltip.scss';
-import '../css/common.scss';
+import '../../css/Map/CrimePopup.scss';
+import '../../css/Map/CrimeTooltip.scss';
+import '../../css/common.scss';
 
 const { Title, Text, Paragraph } = Typography;
 const { Panel } = Collapse;

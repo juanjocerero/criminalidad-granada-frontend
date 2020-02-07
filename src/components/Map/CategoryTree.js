@@ -4,7 +4,7 @@ import { TreeSelect } from 'antd';
 import { QueryContext } from './QueryContext';
 import { fetchApiEndpoint } from './CrimeVisualization';
 
-import '../css/CategoryTree.scss';
+import '../../css/Map/CategoryTree.scss';
 
 const { SHOW_PARENT } = TreeSelect;
 

@@ -4,8 +4,8 @@ import { Typography, Divider } from 'antd';
 import { AiOutlineMan, AiOutlineWoman } from 'react-icons/ai';
 import { FaRegFlag } from 'react-icons/fa';
 
-import '../css/common.scss';
-import '../css/PersonaImplicada.scss';
+import '../../css/common.scss';
+import '../../css/Map/PersonaImplicada.scss';
 
 const { Text } = Typography;
 

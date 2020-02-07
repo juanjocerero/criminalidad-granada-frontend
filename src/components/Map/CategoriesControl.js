@@ -2,7 +2,7 @@ import React from 'react';
 import Control from 'react-leaflet-control';
 import { Tag } from 'antd';
 
-import '../css/common.scss';
+import '../../css/common.scss';
 
 const getCategoriesAsArray = categories => {
   const arr = [];

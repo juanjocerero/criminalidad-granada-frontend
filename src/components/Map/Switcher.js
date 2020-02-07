@@ -4,7 +4,7 @@ import { Switch, Icon } from 'antd';
 
 import { QueryContext } from './QueryContext';
 
-import '../css/Switcher.scss';
+import '../../css/Map/Switcher.scss';
 
 const Switcher = () => {
 
