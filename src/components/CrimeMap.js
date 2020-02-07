@@ -29,7 +29,8 @@ L.Map.addInitHook(function() {
 const getDomElements = () => {
   const currentPopup = document.querySelector('.crimen-popup');
   const burgerMenuIcon = document.querySelector('.bm-burger-button');
-  return { currentPopup, burgerMenuIcon };
+  const categoriesControl = document.querySelector('.categories-control');
+  return { currentPopup, burgerMenuIcon, categoriesControl };
 };
 
 const getCollisionBounds = (popup, burger) => {
@@ -40,8 +41,8 @@ const getCollisionBounds = (popup, burger) => {
   ];
 };
 
-const handleCollision = () => {
-  const collisionInterval = setInterval(() => {
+const handleBurgerCollision = () => {
+  const burgerCollisionInterval = setInterval(() => {
     let { currentPopup, burgerMenuIcon } = getDomElements();
     
     if (currentPopup && burgerMenuIcon) {
@@ -52,7 +53,22 @@ const handleCollision = () => {
     } else {
       burgerMenuIcon.classList.remove('fade-out');
       burgerMenuIcon.classList.add('fade-in');
-      clearInterval(collisionInterval);
+      clearInterval(burgerCollisionInterval);
+    }
+  }, 100);
+};
+
+const handleLegendCollision = () => {
+  const legendCollisionInterval = setInterval(() => {
+    let { currentPopup, categoriesControl } = getDomElements();
+    if (currentPopup && categoriesControl) {
+      if (!categoriesControl.classList.contains('fade-out')) {
+        categoriesControl.classList.add('fade-out');
+      }
+    } else {
+      categoriesControl.classList.remove('fade-out');
+      categoriesControl.classList.add('fade-in');
+      clearInterval(legendCollisionInterval);
     }
   }, 100);
 };
@@ -67,16 +83,18 @@ const handleCategoryColor = categories => {
   return color;
 }
 
-// TODO: add bright stroke in case of not exact place
-const circleMarkerOptions = ( categorias, lugarExacto ) => ({
-  radius: 7,
-  stroke: lugarExacto ? true : false,
-  weight: 3,
-  color: 'transparent',
-  fillOpacity: 0.8,
-  fillColor: handleCategoryColor(categorias),
-  className: 'circle-marker magictime vanishIn'
-});
+const circleMarkerOptions = ( categorias, lugarExacto ) => {
+  return {
+    radius: 7,
+    stroke: !lugarExacto ? true : false,
+    color: !lugarExacto ? '#322e4f' : 'transparent',
+    weight: !lugarExacto ? 2 : 0,
+    opacity: 0.9,
+    fillOpacity: 0.8,
+    fillColor: handleCategoryColor(categorias),
+    className: 'circle-marker magictime vanishIn'
+  }
+};
 
 const createClusterCustomIcon = (cluster) => {
   const elements = cluster.getChildCount();
@@ -159,7 +177,10 @@ const CrimeMap = ({ startPosition, startZoom, startCrimenes }) => {
       }
       
       { /* Everyone gets the popup. */ }
-      <Popup className="crimen-popup" onOpen={handleCollision}>
+      <Popup className="crimen-popup" onOpen={() => {
+        handleBurgerCollision();
+        handleLegendCollision();
+      }}>
       <CrimePopup crimen={crimen} />
       </Popup>
       

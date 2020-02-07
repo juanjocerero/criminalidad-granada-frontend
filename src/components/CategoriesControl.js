@@ -15,7 +15,7 @@ const getCategoriesAsArray = categories => {
 const CategoriesControl = ({ categories }) => {
   
   return (
-    <Control position="bottomleft">
+    <Control position="bottomleft" className="categories-control">
     {
       getCategoriesAsArray(categories).map(obj => 
         <Tag 

@@ -3,7 +3,7 @@ export const categoriesColors = {
   'Asesinato': '#00272b',
   'Delito sexual': '#ff6663',
   'Estafa': '#e6aa68',
-  'Seguridad vial': '#59656f',
-  'Tráfico de drogas': '#03cea4',
-  'Violencia de género': '#665607'
+  'Seguridad vial': '#46a2d4',
+  'Tráfico de drogas': '#3eb87d',
+  'Violencia de género': '#973ec7'
 };
