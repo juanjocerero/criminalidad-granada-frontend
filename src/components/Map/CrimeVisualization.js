@@ -13,7 +13,7 @@ import CrimeMap from './CrimeMap';
 
 import '../../css/Home.scss';
 import '../../css/common.scss';
-import '../../css/Map/ErrorMessage.scss';
+import '../../css/ErrorMessage.scss';
 
 const { Text } = Typography;
 

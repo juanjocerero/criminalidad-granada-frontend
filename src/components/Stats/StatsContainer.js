@@ -1,6 +1,6 @@
   import React, { useEffect, useContext, useState } from 'react';
   import ClipLoader from 'react-spinners/ClipLoader';
-  import { Carousel } from 'antd';
+  import { Carousel, Typography } from 'antd';
   import { css } from '@emotion/core';
   
   import { StatsContext } from './StatsContext';
@@ -9,7 +9,9 @@
   
   import '../../css/Stats/CrimeStatsContainer.scss';
   import '../../css/common.scss';
+  import '../../css/ErrorMessage.scss';
   
+  const { Text } = Typography;
   const cssOverride = css`display: block;margin: 0 auto;`;
   
   const StatsContainer = () => {
@@ -25,8 +27,8 @@
         
         if (!queryResponse.error) {
           setAllCrimenes(queryResponse.data);
-          setIsLoading(false);
         }
+        setIsLoading(false);
       };
       
       fetchAllCrimenes();
@@ -40,14 +42,19 @@
     return (
       <>
       { isLoading && <div className="fullscreen dark-background"><ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} /></div> }
-      
+      { !isLoading && !allCrimenes.length && 
+      <div className="error-message-container text-center justify-center">
+      <Text className="error-message fix-font-family">No se encontraron resultados para tu búsqueda o se produjo un error. Prueba con criterios menos restrictivos.</Text>
+      </div>
+      }
+
       { !isLoading && 
         <Carousel effect="fade" className="text-center align-items-center justify-center fix-font-family">
         { !isLoading && 
           allCrimenes
           .slice(0, 10)
           .map(crimen => (
-            <div key={crimen._id}><span style={{ color: '#fff '}}>{ crimen._id }</span></div>)) 
+            <div key={crimen._id}><Text style={{ color: '#fff '}}>{ crimen._id }</Text></div>)) 
           }
           </Carousel>
         }
