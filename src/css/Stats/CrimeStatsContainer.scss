@@ -1,0 +1,14 @@
+.ant-carousel {
+  overflow: hidden;
+}
+.ant-carousel .slick-slide {
+  background: #111112;
+  height: 100vh;
+  line-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-carousel .slick-dots li button {
+  height: 6px;
+}

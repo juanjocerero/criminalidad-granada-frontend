@@ -1,11 +1,18 @@
 import React from 'react';
 
-function CrimeSats() {
-  return (
-    <div>
-      Stats
-    </div>
-  );
-}
+import StatsContextProvider from './Stats/StatsContextProvider';
+import StatsContainer from './Stats/StatsContainer';
 
-export default CrimeSats;
+const CrimeStats = () => {
+
+  return (
+    <>
+    <StatsContextProvider>
+      <StatsContainer />
+    </StatsContextProvider>
+    </>
+  );
+
+};
+
+export default CrimeStats;
