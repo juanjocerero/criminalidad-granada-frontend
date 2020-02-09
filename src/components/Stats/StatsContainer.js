@@ -48,7 +48,7 @@
       </div>
       }
 
-      { !isLoading && 
+      { !isLoading && allCrimenes.length && 
         <Carousel effect="fade" className="text-center align-items-center justify-center fix-font-family">
         { !isLoading && 
           allCrimenes
