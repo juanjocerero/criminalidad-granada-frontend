@@ -18,7 +18,7 @@ const StatsWelcome = () => {
     </Title>
     <div className="stats-welcome-text" style={{ textAlign: 'left', marginTop: '0.8rem' }}>
     <Paragraph>
-    <Text>Te presentamos una decena de gráficos y grandes cifras que ayudan a conocer mejor el panorama de la criminalidad en la provincia de Granada.</Text>
+    <Text>Te presentamos una decena de gráficos y grandes cifras que ayudan a conocer mejor el panorama de la criminalidad en la provincia.</Text>
     </Paragraph>
     <Paragraph>
     <Text>Cada uno de ellos tratará de <strong>responder a una pregunta concreta</strong>. Puedes desplazarte por ellos haciendo <em>swipe</em> en tu teléfono móvil, pinchando sobre los iconos bajo estas líneas o usando las flechas de tu teclado.</Text>

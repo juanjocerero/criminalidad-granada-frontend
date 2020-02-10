@@ -1,18 +1,19 @@
-  import React, { useEffect, useContext, useState } from 'react';
+  import React, { useEffect, useContext, useState, Suspense } from 'react';
   import ClipLoader from 'react-spinners/ClipLoader';
   import { Carousel, Typography } from 'antd';
   import { css } from '@emotion/core';
   
   import { StatsContext } from './StatsContext';
-
+  
   import StatsWelcome from './StatsWelcome.js';
-  import CategoriesChart from './CategoriesChart';
   
   import { fetchApiEndpoint } from './../Map/CrimeVisualization';
   
   import '../../css/Stats/CrimeStatsContainer.scss';
   import '../../css/common.scss';
   import '../../css/ErrorMessage.scss';
+  
+  const LazyCategoriesChart = React.lazy(() => import('./CategoriesChart'));
   
   const { Text } = Typography;
   const cssOverride = css`display: block;margin: 0 auto;`;
@@ -37,7 +38,7 @@
       };
       fetchAllCrimenes();
     }, [setAllCrimenes]);
-
+    
     useEffect(() => {
       async function fetchCategorias() {
         setIsLoading(true);
@@ -58,7 +59,12 @@
     */
     return (
       <>
-      { isLoading && !categorias.length && <div className="fullscreen dark-background"><ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} /></div> }
+      { isLoading && !categorias.length && 
+        <div className="fullscreen dark-background">
+        <ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} />
+        </div> 
+      }
+
       { !isLoading && !allCrimenes.length && 
         <div className="error-message-container text-center justify-center">
         <Text className="error-message fix-font-family">No se encontraron resultados para tu búsqueda o se produjo un error. Prueba con criterios menos restrictivos.</Text>
@@ -69,7 +75,13 @@
         <Carousel effect="fade" className="text-center align-items-center justify-center fix-font-family">
         
         <StatsWelcome />
-        <CategoriesChart categorias={categorias} crimenes={allCrimenes} />
+
+        <Suspense fallback={<div className="fullscreen dark-background"><ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} /></div> }>
+          
+          <LazyCategoriesChart categorias={categorias} crimenes={allCrimenes} />
+          
+
+        </Suspense>
         
         </Carousel>
       }

@@ -38,7 +38,7 @@ function Home() {
     
     <Link to="/stats">
     <Button loading={false} icon="BarChart2" size="default" secondary={true} className="intro-screen-button">
-    Estadísticas
+    En 10 preguntas
     </Button>
     </Link>
     
