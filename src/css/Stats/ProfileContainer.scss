@@ -1,0 +1,30 @@
+.ant-collapse {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.ant-collapse-header {
+  font-size: 1.2rem;
+  height: 6vh;
+  font-weight: 500;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 414px) {
+  .profiles-container {
+    margin: 1rem 2rem;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  .profiles-container {
+    margin: 2rem 15vw;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .profiles-container {
+    margin: 2rem 25vw;
+  }
+}
+
