@@ -52,11 +52,6 @@
       fetchCategorias();
     }, [setCategorias]);
     
-    /*
-    TODO: ¿Primera pantalla predefinida con explicación?
-    Se puede poner un botón y usar el método goTo del Carousel
-    para comenzar la navegación por las tarjetas.
-    */
     return (
       <>
       { isLoading && !categorias.length && 
