@@ -16,6 +16,7 @@ const StatsWelcome = () => {
     style={{ color: '#f22e52', paddingBottom: '0.8rem', borderBottom: '2px solid white' }}>
     La criminalidad de Granada, en datos
     </Title>
+
     <div className="stats-welcome-text" style={{ textAlign: 'left', marginTop: '0.8rem' }}>
     <Paragraph>
     <Text>Te presentamos una decena de gráficos y grandes cifras que ayudan a conocer mejor el panorama de la criminalidad en la provincia.</Text>
@@ -27,6 +28,7 @@ const StatsWelcome = () => {
     <Text>Los datos que alimentan estos gráficos <strong>se actualizan en tiempo real</strong>, por lo que pueden ser diferentes cada día.</Text>
     </Paragraph>
     </div>
+
     </div>
     )
   };

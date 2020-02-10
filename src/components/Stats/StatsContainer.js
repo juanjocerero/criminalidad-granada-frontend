@@ -13,7 +13,9 @@
   import '../../css/common.scss';
   import '../../css/ErrorMessage.scss';
   
+  // https://blog.logrocket.com/lazy-loading-components-in-react-16-6-6cea535c0b52/
   const LazyCategoriesChart = React.lazy(() => import('./CategoriesChart'));
+  const LazyProfile = React.lazy(() => import('./Profile'));
   
   const { Text } = Typography;
   const cssOverride = css`display: block;margin: 0 auto;`;
@@ -79,7 +81,7 @@
         <Suspense fallback={<div className="fullscreen dark-background"><ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} /></div> }>
           
           <LazyCategoriesChart categorias={categorias} crimenes={allCrimenes} />
-          
+          <LazyProfile />
 
         </Suspense>
         

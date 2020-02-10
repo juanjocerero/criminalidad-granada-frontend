@@ -6,6 +6,13 @@
   justify-content: center;
 }
 
+.apply-flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 .center-element {
   margin: 0 auto;
 }
@@ -66,4 +73,12 @@
 
 .fix-max-height {
   max-height: 100vh;
+}
+
+.question-title {
+  color: #f22e52!important;
+}
+
+svg path {
+  shape-rendering: geometricPrecision;
 }

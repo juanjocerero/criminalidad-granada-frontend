@@ -185,7 +185,6 @@ const CrimeMap = ({ startPosition, startZoom }) => {
   }
   </MarkerClusterGroup>
   
-  
   </LayerGroup>
   
   </Map>
