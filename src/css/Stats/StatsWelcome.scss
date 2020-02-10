@@ -1,0 +1,41 @@
+.carousel-element {
+  // align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stats-welcome-container {
+  margin: 5vh 15vw;
+}
+
+
+@media screen and (max-width: 320px) {
+  .stats-welcome-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 414px) {
+  .stats-welcome-container {
+    margin: 1rem 2rem;
+  }
+  .stats-welcome-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 1278px) {
+  .stats-welcome-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1279px) {
+  .stats-welcome-container {
+    margin: 5vh 30vw;
+  }
+  .stats-welcome-text {
+    font-size: 1.4rem;
+  }
+}
