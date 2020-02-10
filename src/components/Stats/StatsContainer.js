@@ -81,7 +81,7 @@
         <Suspense fallback={<div className="fullscreen dark-background"><ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} /></div> }>
           
           <LazyCategoriesChart categorias={categorias} crimenes={allCrimenes} />
-          <LazyProfile />
+          <LazyProfile crimenes={crimenes} />
 
         </Suspense>
         
