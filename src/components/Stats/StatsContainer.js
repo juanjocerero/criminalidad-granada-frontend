@@ -14,6 +14,7 @@
   import '../../css/Stats/CrimeStatsContainer.scss';
   import '../../css/common.scss';
   import '../../css/ErrorMessage.scss';
+import DrugDistribution from './DrugDistribution';
   
   const { Text } = Typography;
   const cssOverride = css`display: block;margin: 0 auto;`;
@@ -75,6 +76,8 @@
         <CategoriesChart categorias={categorias} crimenes={allCrimenes} />
         
         <ProfileContainer crimenes={allCrimenes} />
+
+        <DrugDistribution crimenes={allCrimenes.filter(crime => crime.categorias.includes('Tráfico de drogas'))} />
 
         </Carousel>
       }

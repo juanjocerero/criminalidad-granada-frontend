@@ -1,51 +1,55 @@
 import React from 'react';
+import MobileDetect from 'mobile-detect';
+import { remove } from 'lodash';
 import { ResponsivePie } from '@nivo/pie';
 import { Typography } from 'antd';
-import MobileDetect from 'mobile-detect';
 
-import { categoriesColors } from '../../Resources/Colors';
-
-import '../../css/Stats/CategoriesChart.scss';
-import '../../css/common.scss';
-
-const md = new MobileDetect(window.navigator.userAgent);
 const { Title, Text } = Typography;
+const md = new MobileDetect(window.navigator.userAgent);
 
-const handleCategories = (categorias, crimenes) => {
-  const categoriesData = [];
-  const parents = categorias.filter(category => category.is_parent);
+const handleCrimes = crimes => {
+  const byDrug = [
+    { id: 'Marihuana', label: 'Marihuana', value: 0, color: '#47cca9' },
+    { id: 'Hachís', label: 'Hachís', value: 0, color: '#cc7e47' },
+    { id: 'Cocaína', label: 'Cocaína', value: 0, color: '#f0f0f0' },
+    { id: 'Resto', label: 'Resto', value: 0, color: '#f5b3b3' }
+  ];
   
-  for (let parentCategory of parents) {
-    const parentCategoryElements = crimenes.filter(v => v.categorias.includes(parentCategory.nombre));
-    categoriesData.push({
-      id: parentCategory.nombre,
-      label: parentCategory.nombre,
-      value: parentCategoryElements.length,
-      color: categoriesColors[parentCategory.nombre]
-    });
-  }
-  
-  return categoriesData;
-}
+  for (let crime of crimes) {
+    if (crime.categorias.includes('Marihuana')) {
+      byDrug[0].value++;
+    }
+    else if (crime.categorias.includes('Hachís')) {
+      byDrug[1].value++;
+    }
+    else if (crime.categorias.includes('Cocaína')) {
+      byDrug[2].value++;
+    } else {
+      byDrug[3].value++;
+    }
+  };
 
-const CategoriesChart = ({ crimenes, categorias }) => {
+  return remove(byDrug, drug => drug.value !== 0);
+};
+
+const DrugDistribution = ({ crimenes }) => {
   
   return (
     <>
     <div className="apply-flex-center">
-    <Title level={3} className="question-title">¿Qué delitos se cometen más a menudo?</Title>
+    <Title level={3} className="question-title">¿Qué drogas están implicadas?</Title>
     
     <div className="categories-chart-container">
     
     <ResponsivePie 
-    data={handleCategories(categorias, crimenes)} 
+    data={handleCrimes(crimenes)} 
     sortByValue={md.mobile() ? true : false} 
     enableRadialLabels={md.mobile() ? false : true}
     margin={md.mobile() ? { top: 20, right: 0, bottom: 0, left: 0 } : { top: 60, right: 80, bottom: 80, left: 80 }}
     innerRadius={0.6}
     padAngle={2}
     cornerRadius={1}
-    colors={category => category.color}
+    colors={drug => drug.color}
     borderWidth={2}
     borderColor={'rgba(255,255,255,0.9)'}
     radialLabelsSkipAngle={2}
@@ -74,5 +78,4 @@ const CategoriesChart = ({ crimenes, categorias }) => {
     
   };
   
-  export default CategoriesChart;
-  
+  export default DrugDistribution;

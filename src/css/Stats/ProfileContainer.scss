@@ -11,8 +11,8 @@
 }
 
 .profile-subtitle {
-  font-size: 0.8rem!important;
   margin: 0.5rem 3rem;
+  font-size: 0.8rem!important;
   font-weight: 100;
   font-style: italic;
 }
@@ -32,5 +32,8 @@
 @media screen and (min-width: 1025px) {
   .profiles-container {
     margin: 2rem 25vw;
+  }
+  .profile-subtitle {
+    margin: 0.5rem 25vw;
   }
 }
