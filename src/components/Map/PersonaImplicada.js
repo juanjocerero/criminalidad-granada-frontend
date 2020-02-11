@@ -38,30 +38,30 @@ const PersonaImplicada = ({ nombre, iniciales, sexo, edad, nacionalidad }) => {
       
       { iniciales && 
         <Fragment>
-        <Divider type="vertical" />
-        <Text className="black-text text-medium">{ iniciales }</Text> 
+        <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
+        <Text className="black-text text-medium" style={{ marginLeft: '0.3rem' }}>{ iniciales }</Text> 
         </Fragment>
       }
       
       { nombre && 
         <Fragment>
-        <Divider type="vertical" />
-        <Text className="black-text text-medium">{ nombre }</Text>
+        <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
+        <Text className="black-text text-medium" style={{ marginLeft: '0.3rem' }}>{ nombre }</Text>
         </Fragment> 
       }
       
       { edad && 
         <Fragment>
-        <Divider type="vertical" />
-        <Text className="black-text text-medium">{ edad } años</Text> 
+        <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
+        <Text className="black-text text-medium" style={{ marginLeft: '0.3rem' }}>{ edad } años</Text> 
         </Fragment>
       }
       
       { nacionalidad && 
         <Fragment>
-        <Divider type="vertical" />
-        <FaRegFlag className="flag-icon" />
-        <Text className="black-text text-medium">{ nacionalidad }</Text>
+        <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
+        <FaRegFlag className="flag-icon" style={{ marginLeft: '0.3rem' }} />
+        <Text className="black-text text-medium" style={{ marginLeft: '0.1rem' }}>{ nacionalidad }</Text>
         </Fragment> 
       }
       
