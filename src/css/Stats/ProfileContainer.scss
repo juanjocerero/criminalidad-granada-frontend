@@ -1,5 +1,5 @@
 .ant-collapse {
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.97);
 }
 
 .ant-collapse-header {
@@ -8,6 +8,13 @@
   font-weight: 500;
   display: table-cell;
   vertical-align: middle;
+}
+
+.profile-subtitle {
+  font-size: 0.8rem!important;
+  margin: 0.5rem 3rem;
+  font-weight: 100;
+  font-style: italic;
 }
 
 @media screen and (max-width: 414px) {
@@ -27,4 +34,3 @@
     margin: 2rem 25vw;
   }
 }
-

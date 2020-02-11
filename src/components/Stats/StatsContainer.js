@@ -69,11 +69,13 @@
       { !isLoading && allCrimenes.length && categorias.length && 
         <Carousel effect="fade" className="text-center align-items-center justify-center fix-font-family">
         
+        
         <StatsWelcome />
         
         <CategoriesChart categorias={categorias} crimenes={allCrimenes} />
-        <ProfileContainer crimenes={allCrimenes} />
         
+        <ProfileContainer crimenes={allCrimenes} />
+
         </Carousel>
       }
       </>
