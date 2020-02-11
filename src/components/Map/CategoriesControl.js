@@ -1,8 +1,10 @@
 import React from 'react';
 import Control from 'react-leaflet-control';
-import { Tag } from 'antd';
+import { Tag, Typography } from 'antd';
 
 import '../../css/common.scss';
+
+const { Text } = Typography;
 
 const getCategoriesAsArray = categories => {
   const arr = [];
@@ -16,6 +18,7 @@ const CategoriesControl = ({ categories }) => {
   
   return (
     <Control position="bottomleft" className="categories-control">
+    <Text className="black-text fix-font-family" style={{ fontWeight: 'bold' }}>Leyenda</Text>
     {
       getCategoriesAsArray(categories).map(obj => 
         <Tag 

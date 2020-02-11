@@ -51,7 +51,7 @@ const TimeEvolution = ({ crimenes }) => {
     <ResponsiveLine 
     data={byDay(crimenes)} 
     animate={false} 
-    colors={['#ff2b2b']} 
+    colors={['#f22e52']} 
     margin={md.mobile() ? { top: 30, right: 10, bottom: 100, left: 30 } : { top: 80, right: 50, bottom: 100, left: 50 }} 
     curve="catmullRom" 
     lineWidth={md.mobile() ? 2 : 4} 
