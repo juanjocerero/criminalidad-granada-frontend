@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import TimeAgo from 'timeago-react';
 import * as timeago from 'timeago.js';
 import { uuid } from 'uuidv4';
@@ -19,9 +19,9 @@ const { Panel } = Collapse;
 
 const CrimePopup = ({ crimen }) => {
   timeago.register('es', es);
-
+  
   return (
-    <Fragment>
+    <>
     <Card className="crimen-popup" bordered={false}>
     
     <TimeAgo datetime={crimen.date} locale="es" className="time-ago display-inline-block" />
@@ -79,7 +79,7 @@ const CrimePopup = ({ crimen }) => {
 }
 
 </Card>
-</Fragment>
+</>
 );
 
 };

@@ -127,6 +127,10 @@ const CrimeMap = ({ startPosition, startZoom }) => {
   const [crimenes] = stateCrimenes;
   
   const mapRef = useRef();
+
+  const resetMapPosition = mapRef => {
+    mapRef.current.fitBounds(flattenDeep(crimenes.map(v => v.latLng)), { padding: [20, 20] });
+  };
   
   useEffect(() => {
     mapRef.current = document.querySelector('.map-container').leafletMap;
@@ -173,9 +177,13 @@ const CrimeMap = ({ startPosition, startZoom }) => {
       }
       
       { /* Everyone gets the popup. */ }
-      <Popup className="crimen-popup" onOpen={() => {
+      <Popup className="crimen-popup" 
+      onOpen={() => {
         handleBurgerCollision();
         handleLegendCollision();
+      }} 
+      onClose={() => {
+        resetMapPosition(mapRef);
       }}>
       <CrimePopup crimen={crimen} />
       </Popup>
