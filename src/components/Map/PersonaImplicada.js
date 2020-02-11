@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { every } from 'lodash';
 import { Typography, Divider } from 'antd';
 import { AiOutlineMan, AiOutlineWoman } from 'react-icons/ai';
@@ -14,7 +14,7 @@ const PersonaImplicada = ({ nombre, iniciales, sexo, edad, nacionalidad }) => {
   const everythingIsNull = every([nombre, iniciales, sexo, edad, nacionalidad], element => (element === null));
   
   return (
-    <Fragment>
+    <>
     
     {
       everythingIsNull 
@@ -27,48 +27,48 @@ const PersonaImplicada = ({ nombre, iniciales, sexo, edad, nacionalidad }) => {
       <div className="vertically-align-elements victim-or-detainee">
       
       { sexo && (sexo === 'Hombre' ? 
-      <Fragment>
+      <>
       <AiOutlineMan className="icon icon-man" />
-      </Fragment>
+      </>
       : 
-      <Fragment>
+      <>
       <AiOutlineWoman className="icon icon-woman" />
-      </Fragment>
+      </>
       ) }
       
       { iniciales && 
-        <Fragment>
+        <>
         <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
         <Text className="black-text text-medium" style={{ marginLeft: '0.3rem' }}>{ iniciales }</Text> 
-        </Fragment>
+        </>
       }
       
       { nombre && 
-        <Fragment>
+        <>
         <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
         <Text className="black-text text-medium" style={{ marginLeft: '0.3rem' }}>{ nombre }</Text>
-        </Fragment> 
+        </> 
       }
       
       { edad && 
-        <Fragment>
+        <>
         <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
         <Text className="black-text text-medium" style={{ marginLeft: '0.3rem' }}>{ edad } años</Text> 
-        </Fragment>
+        </>
       }
       
       { nacionalidad && 
-        <Fragment>
+        <>
         <Divider type="vertical" style={{ marginLeft: '0.3rem' }} />
         <FaRegFlag className="flag-icon" style={{ marginLeft: '0.3rem' }} />
         <Text className="black-text text-medium" style={{ marginLeft: '0.1rem' }}>{ nacionalidad }</Text>
-        </Fragment> 
+        </> 
       }
       
       </div>
     }
     
-    </Fragment>
+    </>
     );
   };
   
