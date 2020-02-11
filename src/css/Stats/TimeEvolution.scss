@@ -1,0 +1,17 @@
+@media screen and (max-width: 414px) {
+  .time-chart-container {
+    height: 360px;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  .time-chart-container {
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .time-chart-container {
+    height: 700px;
+  }
+}

@@ -94,7 +94,7 @@ const ArrestedProfile = ({ crimenes }) => {
     <>
     <Text className="black-text">{`${id}: `}</Text>
     <Text className="black-text text-bold fix-line-height">{`${value}`}</Text>
-    <Text className="black-text percent-text">{` (${((value/getSexDistribution(crimenes)[0].total)*100).toFixed(2)}%)`}</Text>
+    <Text className="black-text percent-text">{` (${((value/getSexDistribution(arrested)[0].total)*100).toFixed(2)}%)`}</Text>
     </>}
     enableLabel={false}
     legends={[
@@ -143,11 +143,11 @@ const ArrestedProfile = ({ crimenes }) => {
     padding={0.3}
     colors={['#b90021', '#4dc98b']}
     borderColor={{ from: 'color', modifiers: [ [ 'darker', 1.6 ] ] }}
-    tooltip={({id, value}) => 
-    <>
+    tooltip={({id, value}) => <>
     <Text className="black-text">{`${id}: `}</Text>
-    <Text className="black-text percent-text">{` (${((value/getPreviousFeloniesDistribution(crimenes)[0].total)*100).toFixed(2)}%)`}</Text>
-    </>}
+    <Text className="black-text percent-text">{` (${((value/getPreviousFeloniesDistribution(arrested)[0].total)*100).toFixed(2)}%)`}</Text>
+    </>
+    }
     enableLabel={false}
     legends={[
       {

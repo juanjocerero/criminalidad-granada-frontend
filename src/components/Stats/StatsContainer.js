@@ -8,6 +8,7 @@
   import StatsWelcome from './StatsWelcome.js';
   import CategoriesChart from './CategoriesChart';
   import ProfileContainer from './ProfileContainer';
+  import TimeEvolution from './TimeEvolution';
   
   import { fetchApiEndpoint } from './../Map/CrimeVisualization';
   
@@ -70,7 +71,6 @@ import DrugDistribution from './DrugDistribution';
       { !isLoading && allCrimenes.length && categorias.length && 
         <Carousel effect="fade" className="text-center align-items-center justify-center fix-font-family">
         
-        
         <StatsWelcome />
         
         <CategoriesChart categorias={categorias} crimenes={allCrimenes} />
@@ -78,6 +78,8 @@ import DrugDistribution from './DrugDistribution';
         <ProfileContainer crimenes={allCrimenes} />
 
         <DrugDistribution crimenes={allCrimenes.filter(crime => crime.categorias.includes('Tráfico de drogas'))} />
+
+        <TimeEvolution crimenes={allCrimenes} />
 
         </Carousel>
       }
