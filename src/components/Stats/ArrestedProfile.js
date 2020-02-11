@@ -9,7 +9,6 @@ import '../../css/common.scss';
 /*
 Componentes del perfil:
 Edad media
-Con o sin antecedentes
 Nacionalidad más común
 */
 
