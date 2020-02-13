@@ -2,6 +2,7 @@ import React from 'react';
 import Control from 'react-leaflet-control';
 import { Tag, Typography } from 'antd';
 
+import '../../css/Map/CategoriesControl.scss';
 import '../../css/common.scss';
 
 const { Text } = Typography;

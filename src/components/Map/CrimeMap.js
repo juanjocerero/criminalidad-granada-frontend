@@ -9,6 +9,7 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import CrimeTooltip from './CrimeTooltip';
 import CrimePopup from './CrimePopup';
 import CategoriesControl from './CategoriesControl';
+import AboutControl from './AboutControl';
 
 import { QueryContext } from './QueryContext';
 import { categoriesColors } from '../../Resources/Colors';
@@ -150,6 +151,7 @@ const CrimeMap = ({ startPosition, startZoom }) => {
     
     <ZoomControl position="bottomright"></ZoomControl>
     <CategoriesControl categories={categoriesColors} />
+    <AboutControl />
     
     <LayerGroup>
     

@@ -9,7 +9,7 @@ import WebFont from 'webfontloader';
 
 WebFont.load({
   google: {
-    families: ['Fira Sans:200,300,400,500,600', 'sans-serif']
+    families: ['Fira Sans:200,300,400,500,600,700', 'sans-serif']
   }
 });
 

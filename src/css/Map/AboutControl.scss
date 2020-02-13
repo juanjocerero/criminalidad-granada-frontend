@@ -1,0 +1,34 @@
+.about-control > .ant-btn {
+  background-color: rgba(255,255,255,0.3);
+  border: 2px solid #748d9a;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.about-control > .ant-btn:hover, .ant-btn:focus {
+  color: #d50019;
+  border-color: #d50019;
+  border: 2px solid #d50019;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.modal-close-button {
+  border: 2px solid #d50019;
+  background-color: transparent;
+  color: #748d9a;
+  font-weight: 500;
+  line-height: 2.2;
+}
+
+.modal-close-button:hover, .modal-close-button:focus {
+  background-color: rgba(116, 141, 154, 0.3);
+  border: 2px solid #748d9a;
+}
