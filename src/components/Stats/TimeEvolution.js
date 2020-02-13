@@ -58,16 +58,9 @@ const TimeEvolution = ({ crimenes }) => {
     enableGridX={md.mobile() ? false : true}
     enableGridY={md.mobile() ? false : true}
     isInteractive={true}
-    xScale={{
-      type: 'time',
-      format: '%Y-%m-%d',
-      precision: 'day'
-    }}
+    xScale={{ type: 'time', format: '%Y-%m-%d', precision: 'day' }}
     xFormat="time:%d-%m"
-    yScale={{
-      type: 'linear',
-      min: 0
-    }}
+    yScale={{ type: 'linear', min: 0 }}
     axisLeft={{
       legend: 'crímenes',
       tickValues: 5,
@@ -93,18 +86,12 @@ const TimeEvolution = ({ crimenes }) => {
     enablePointLabel={false}
     pointSize={md.mobile() ? 0 : 10}
     pointBorderWidth={1}
-    pointBorderColor={{
-      from: 'color',
-      modifiers: [['darker', 0.3]],
-    }}
+    pointBorderColor={{ from: 'color', modifiers: [['darker', 0.3]] }}
     useMesh={true}
     enableSlices={false}
     theme={{
       grid: {
-        line: {
-          stroke: '#92a6a6',
-          strokeWidth: 1
-        }
+        line: { stroke: '#92a6a6', strokeWidth: 1 }
       }
     }}
     />
