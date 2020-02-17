@@ -32,7 +32,8 @@ const getDomElements = () => {
   const currentPopup = document.querySelector('.crimen-popup');
   const burgerMenuIcon = document.querySelector('.bm-burger-button');
   const categoriesControl = document.querySelector('.categories-control');
-  return { currentPopup, burgerMenuIcon, categoriesControl };
+  const aboutControl = document.querySelector('.about-control');
+  return { currentPopup, burgerMenuIcon, categoriesControl, aboutControl };
 };
 
 const getCollisionBounds = (popup, burger) => {
@@ -74,6 +75,22 @@ const handleLegendCollision = () => {
     }
   }, 100);
 };
+
+const handleAboutCollision = () => {
+  const aboutCollisionInterval = setInterval(() => {
+    let { currentPopup, aboutControl } = getDomElements();
+    if (currentPopup && aboutControl) {
+      if (!aboutControl.classList.contains('hide')) {
+        aboutControl.classList.remove('show');
+        aboutControl.classList.add('hide');
+      }
+    } else {
+      aboutControl.classList.remove('hide');
+      aboutControl.classList.add('show');
+      clearInterval(aboutCollisionInterval);
+    }
+  }, 100);
+}
 
 const handleCategoryColor = categories => {
   let color = '#92a6a6';
@@ -129,9 +146,9 @@ const CrimeMap = ({ startPosition, startZoom }) => {
   
   const mapRef = useRef();
 
-  const resetMapPosition = mapRef => {
-    mapRef.current.fitBounds(flattenDeep(crimenes.map(v => v.latLng)), { padding: [20, 20] });
-  };
+  // const resetMapPosition = mapRef => {
+  //   mapRef.current.fitBounds(flattenDeep(crimenes.map(v => v.latLng)), { padding: [20, 20] });
+  // };
   
   useEffect(() => {
     mapRef.current = document.querySelector('.map-container').leafletMap;
@@ -183,9 +200,10 @@ const CrimeMap = ({ startPosition, startZoom }) => {
       onOpen={() => {
         handleBurgerCollision();
         handleLegendCollision();
+        handleAboutCollision();
       }} 
       onClose={() => {
-        resetMapPosition(mapRef);
+        // resetMapPosition(mapRef);
       }}>
       <CrimePopup crimen={crimen} />
       </Popup>
