@@ -4,12 +4,13 @@ import MobileDetect from 'mobile-detect';
 import { startOfDay, getDate, getYear, getMonth, format } from 'date-fns';
 import es from 'date-fns/locale/es';
 import { groupBy, forOwn, first } from 'lodash';
-import { Typography } from 'antd';
+import { Typography, Tooltip } from 'antd';
 
+import '../../css/Stats/TimeEvolution.scss';
 import '../../css/common.scss';
 
 const md = new MobileDetect(window.navigator.userAgent);
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const formatDateForAxis = date => {
   const year = getYear(date);
@@ -38,15 +39,26 @@ const byDay = crimes => {
   return result.sort((a, b) => b.x - a.x);
 };
 
-const TimeEvolution = ({ crimenes }) => {
- 
+const getTooltip = data => {
+  const day = ((getDate(data.x))+1).toLocaleString('es-ES', { minimumIntegerDigits: 1 });
+  const month = format(data.x, 'MMM', { locale: es });
+  const year = getYear(data.x);
+  
+  return {
+    date: `${day} de ${month} de ${year}`,
+    delitos: `${data.y < 2 ? `${data.y} delito` : `${data.y} delitos`}`
+  };
+};
+
+const TimeEvolution = ({ questionNumber, crimenes }) => {
+  
   return (
     <>
     <div className="apply-flex-center">
     
-    <Title level={3} className="question-title">¿Cuándo se producen?</Title>
+    <Title level={3} className="question-title">{questionNumber}. ¿Cuándo se producen?</Title>
     
-    <div className="categories-chart-container">
+    <div className="time-chart-container">
     {/* TODO: add custom tooltip function */}
     <ResponsiveLine 
     data={byDay(crimenes)} 
@@ -93,15 +105,18 @@ const TimeEvolution = ({ crimenes }) => {
       grid: {
         line: { stroke: '#92a6a6', strokeWidth: 1 }
       }
-    }}
-    />
-    
-    </div>
-    
-    </div>
-    </>
-    )
-  };
+    }} 
+    tooltip={(seriesData) => <Tooltip title={getTooltip(seriesData.point.data).date} className="time-chart-tooltip" visible={true}>
+    <Text className="white-text text-bold">{ getTooltip(seriesData.point.data).delitos }</Text>
+    </Tooltip>
+  }
+  />
   
-  export default TimeEvolution;
+  </div>
   
+  </div>
+  </>
+  )
+};
+
+export default TimeEvolution;

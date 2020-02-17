@@ -9,6 +9,7 @@
   import CategoriesChart from './CategoriesChart';
   import ProfileContainer from './ProfileContainer';
   import TimeEvolution from './TimeEvolution';
+  import ForceDistribution from './ForceDistribution';
   
   import { fetchApiEndpoint } from './../Map/CrimeVisualization';
   
@@ -73,13 +74,15 @@ import DrugDistribution from './DrugDistribution';
         
         <StatsWelcome />
         
-        <CategoriesChart categorias={categorias} crimenes={allCrimenes} />
+        <CategoriesChart questionNumber={1} categorias={categorias} crimenes={allCrimenes} />
         
-        <ProfileContainer crimenes={allCrimenes} />
+        <ProfileContainer questionNumber={2} crimenes={allCrimenes} />
 
-        <DrugDistribution crimenes={allCrimenes.filter(crime => crime.categorias.includes('Tráfico de drogas'))} />
+        <DrugDistribution questionNumber={3} crimenes={allCrimenes.filter(crime => crime.categorias.includes('Tráfico de drogas'))} />
 
-        <TimeEvolution crimenes={allCrimenes} />
+        <TimeEvolution questionNumber={4} crimenes={allCrimenes} />
+
+        <ForceDistribution questionNumber={5} crimenes={allCrimenes.filter(crimen => crimen.cuerpo).map(crimen => crimen.cuerpo).flat()} />
 
         </Carousel>
       }

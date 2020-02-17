@@ -28,12 +28,12 @@ const handleCategories = (categorias, crimenes) => {
   return categoriesData;
 }
 
-const CategoriesChart = ({ crimenes, categorias }) => {
+const CategoriesChart = ({ questionNumber, crimenes, categorias }) => {
   
   return (
     <>
     <div className="apply-flex-center">
-    <Title level={3} className="question-title">¿Qué delitos se cometen más a menudo?</Title>
+    <Title level={3} className="question-title">{questionNumber}. ¿Qué delitos se cometen más a menudo?</Title>
     
     <div className="categories-chart-container">
     

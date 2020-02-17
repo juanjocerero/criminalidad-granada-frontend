@@ -1,3 +1,26 @@
+.time-chart-container svg text {
+  font-size: 0.8rem!important;
+}
+
+.ant-tooltip-arrow {
+  display: none;
+}
+
+span.time-chart-tooltip {
+  background-color: rgba(0,0,0,0.7);
+  font-size: 1.1rem;
+  padding: 0.6rem;
+  border-radius:4px;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  -ms-border-radius:4px;
+  -o-border-radius:4px;
+}
+
+div.ant-tooltip-inner {
+  font-size: 0.8rem;
+}
+
 @media screen and (max-width: 414px) {
   .time-chart-container {
     height: 360px;

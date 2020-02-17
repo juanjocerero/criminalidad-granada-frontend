@@ -28,16 +28,16 @@ const handleCrimes = crimes => {
       byDrug[3].value++;
     }
   };
-
+  
   return remove(byDrug, drug => drug.value !== 0);
 };
 
-const DrugDistribution = ({ crimenes }) => {
+const DrugDistribution = ({ questionNumber, crimenes }) => {
   
   return (
     <>
     <div className="apply-flex-center">
-    <Title level={3} className="question-title">¿Qué drogas están implicadas?</Title>
+    <Title level={3} className="question-title">{questionNumber}. ¿Qué drogas están implicadas?</Title>
     
     <div className="categories-chart-container">
     

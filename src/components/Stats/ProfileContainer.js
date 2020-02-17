@@ -10,12 +10,12 @@ import '../../css/Stats/ProfileContainer.scss';
 const { Title } = Typography;
 const { Panel } = Collapse;
 
-const ProfileContainer = ({ crimenes }) => {
+const ProfileContainer = ({ questionNumber, crimenes }) => {
   
   return (
     <>
     <div className="apply-flex-center">
-    <Title level={3} className="question-title">¿Cuáles son los perfiles más comunes?</Title>
+    <Title level={3} className="question-title">{questionNumber}. ¿Cuáles son los perfiles más comunes?</Title>
     <Title className="profile-subtitle" level={4}>
     (Pulse o pase el ratón por las barras de los gráficos para ver más información)
     </Title>

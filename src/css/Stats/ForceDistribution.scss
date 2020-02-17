@@ -1,0 +1,17 @@
+@media screen and (max-width: 414px) {
+  .forces-chart-container {
+    height: 360px;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  .forces-chart-container {
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .forces-chart-container {
+    height: 700px;
+  }
+}
