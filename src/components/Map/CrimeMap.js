@@ -28,16 +28,11 @@ L.Map.addInitHook(function() {
   this.getContainer().leafletMap = this;
 });
 
-L.Tooltip.addInitHook(function() {
-  this._source.leafletObject = this;
-
-});
-
 const closeOpenTooltipsIfAny = () => {
   const tooltip = document.querySelector('.crimen-tooltip');
   if (tooltip) {
     tooltip.classList.add('hide');
-    setTimeout(() => tooltip.classList.remove('hide'), 500);
+    setTimeout(() => tooltip.classList.remove('hide'), 700);
   }
 };
 

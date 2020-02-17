@@ -16,12 +16,10 @@ const AboutControl = () => {
   };
   
   const handleOk = event => {
-    console.log(event);
     setVisible(false);
   };
   
   const handleCancel = event => {
-    console.log(event);
     setVisible(false);
   };
   
@@ -42,8 +40,18 @@ const AboutControl = () => {
     footer={[<Button key="submit" type="primary" onClick={handleOk} className="modal-close-button">Vale</Button>]}
     >
     <Paragraph>
-      <Text>
-        {/* TODO: rellenar este apartado */}
+      <Text className="black-text">
+        En el menú que se abre pinchando en el icono que hay arriba a la izquierda puedes refinar los criterios de los crímenes que se muestran. El color de cada punto indica de qué tipo de delito se trata. Si se acumulan muchos puntos, el número que aparece expresa cuántos hay; pinchando sobre él puedes acceder a una vista más detallada.
+      </Text>
+    </Paragraph>
+    <Paragraph>
+      <Text className="black-text">
+        Los puntos que aparecen con un borde oscuro indican aquellos del que sólo se sabe en qué municipio ocurrieron, pero no su localización exacta.
+      </Text>
+    </Paragraph>
+    <Paragraph>
+      <Text className="black-text">
+        Puedes pinchar sobre cualquier punto para ver información detallada sobre el delito cometido.
       </Text>
     </Paragraph>
     </Modal>
