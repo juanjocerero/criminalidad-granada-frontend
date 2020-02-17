@@ -51,13 +51,15 @@ const ForceDistribution = ({ questionNumber, crimenes }) => {
     root={getRootObject(crimenes)} 
     identity="name" 
     value="count" 
-    innerPadding={3} 
-    outerPadding={3} 
+    innerPadding={5} 
+    outerPadding={5} 
     margin={ md.mobile() ? { top: 10, right: 20, bottom: 10, left: 20 } : { top: 10, right: 50, bottom: 10, left: 50 }} 
     label="name" 
     colors={(e) => e.color}
-    borderColor={{ from: 'color', modifiers: [ [ 'darker', 0.3 ] ] }} 
+    borderColor={{ from: 'color', modifiers: [ [ 'brighter', 0.3 ] ] }} 
+    borderWidth={2}
     animate={false}
+    isInteractive={true}
     />
     
     </div>
