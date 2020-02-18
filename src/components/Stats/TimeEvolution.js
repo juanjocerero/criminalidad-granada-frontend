@@ -40,7 +40,7 @@ const byDay = crimes => {
 };
 
 const getTooltip = data => {
-  const day = ((getDate(data.x))+1).toLocaleString('es-ES', { minimumIntegerDigits: 1 });
+  const day = ((getDate(data.x))).toLocaleString('es-ES', { minimumIntegerDigits: 1 });
   const month = format(data.x, 'MMM', { locale: es });
   const year = getYear(data.x);
   

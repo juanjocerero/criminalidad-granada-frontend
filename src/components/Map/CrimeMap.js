@@ -130,8 +130,11 @@ const createClusterCustomIcon = (cluster) => {
   if (elements >= 5 && elements < 10) {
     sizeClass = 'md';
   }
-  if (elements > 10) {
+  if (elements >= 10 && elements <= 25) {
     sizeClass = 'lg';
+  }
+  if (elements > 25) {
+    sizeClass = 'xl';
   }
   
   return L.divIcon({

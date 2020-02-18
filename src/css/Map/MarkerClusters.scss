@@ -1,14 +1,14 @@
-.cluster-sm, .cluster-md, .cluster-lg {
+.cluster-sm, .cluster-md, .cluster-lg, .cluster-xl {
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 600;
   color: white;
   
   font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Droid Sans', 'Helvetica Neue', sans-serif!important;
   
-  background-color: #92a6a6;
+  background-color: rgba(116, 141, 154, 0.7);
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -16,27 +16,34 @@
   -o-border-radius: 50%;
   
   opacity: 0.8;
-  border: 2px solid #b90021;
+  border: 2px solid #d50019;
   
-  -webkit-box-shadow: 2px 2px 2px 1px rgba(146, 166, 166, 0.7);
-  -moz-box-shadow: 2px 2px 2px 1px rgba(146, 166, 166, 0.7);
-  box-shadow: 2px 2px 2px 1px rgba(146, 166, 166, 0.7);
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(116, 141, 154, 0.7);
+  -moz-box-shadow: 2px 2px 2px 1px rgba(116, 141, 154, 0.7);
+  box-shadow: 2px 2px 2px 1px rgba(116, 141, 154, 0.7);
 }
 
 .cluster-sm {
+  width: 24px!important;
+  height: 24px!important;
+  font-size: 0.9rem!important;
+  font-weight: 400!important;
+}
+
+.cluster-md {
   width: 36px!important;
   height: 36px!important;
   font-size: 1.2rem;
 }
 
-.cluster-md {
+.cluster-lg {
   width: 48px!important;
   height: 48px!important;
   font-size: 1.4rem;
 }
 
-.cluster-lg {
+.cluster-xl {
   width: 64px!important;
   height: 64px!important;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }

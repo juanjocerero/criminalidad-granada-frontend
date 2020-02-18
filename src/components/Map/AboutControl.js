@@ -41,17 +41,22 @@ const AboutControl = () => {
     >
     <Paragraph>
       <Text className="black-text">
-        En el menú que se abre pinchando en el icono que hay arriba a la izquierda puedes refinar los criterios de los crímenes que se muestran. El color de cada punto indica de qué tipo de delito se trata. Si se acumulan muchos puntos, el número que aparece expresa cuántos hay; pinchando sobre él puedes acceder a una vista más detallada.
+        En el menú que se abre arriba a la izquierda (la 'hamburgesa') puedes cambiar los criterios de los crímenes que se muestran. El color de cada punto en el mapa indica de qué tipo de delito se trata. Cuando se acumulan muchos puntos, el número que aparece expresa cuántos hay; pinchando sobre él puedes acceder a una vista más detallada.
       </Text>
     </Paragraph>
     <Paragraph>
       <Text className="black-text">
-        Los puntos que aparecen con un borde oscuro indican aquellos del que sólo se sabe en qué municipio ocurrieron, pero no su localización exacta.
+        La vista por defecto, que se abre al cargar por primera vez, muestra los delitos cuya localización exacta se conoce cometidos en el año en curso.
       </Text>
     </Paragraph>
     <Paragraph>
       <Text className="black-text">
-        Puedes pinchar sobre cualquier punto para ver información detallada sobre el delito cometido.
+        Si un punto aparece con un borde negro alrededor quiere decir que se sabe en qué municipio ocurrió, pero no su localización exacta.
+      </Text>
+    </Paragraph>
+    <Paragraph>
+      <Text className="black-text">
+        Puedes pinchar sobre cualquier punto para ver información detallada sobre un hecho.
       </Text>
     </Paragraph>
     </Modal>
