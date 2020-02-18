@@ -3,6 +3,7 @@ import MobileDetect from 'mobile-detect';
 import { ResponsiveTreeMap } from '@nivo/treemap';
 import { Typography } from 'antd';
 
+import '../../css/common.scss';
 import '../../css/Stats/ForceDistribution.scss';
 
 const md = new MobileDetect(window.navigator.userAgent);

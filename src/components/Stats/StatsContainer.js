@@ -9,14 +9,15 @@
   import CategoriesChart from './CategoriesChart';
   import ProfileContainer from './ProfileContainer';
   import TimeEvolution from './TimeEvolution';
+  import DrugDistribution from './DrugDistribution';
   import ForceDistribution from './ForceDistribution';
+  import DetaineeDistribution from './DetaineeDistribution';
   
   import { fetchApiEndpoint } from './../Map/CrimeVisualization';
   
   import '../../css/Stats/CrimeStatsContainer.scss';
   import '../../css/common.scss';
   import '../../css/ErrorMessage.scss';
-import DrugDistribution from './DrugDistribution';
   
   const { Text } = Typography;
   const cssOverride = css`display: block;margin: 0 auto;`;
@@ -77,12 +78,14 @@ import DrugDistribution from './DrugDistribution';
         <CategoriesChart questionNumber={1} categorias={categorias} crimenes={allCrimenes} />
         
         <ProfileContainer questionNumber={2} crimenes={allCrimenes} />
-
+        
         <DrugDistribution questionNumber={3} crimenes={allCrimenes.filter(crime => crime.categorias.includes('Tráfico de drogas'))} />
-
+        
         <TimeEvolution questionNumber={4} crimenes={allCrimenes} />
-
+        
         <ForceDistribution questionNumber={5} crimenes={allCrimenes.filter(crimen => crimen.cuerpo).map(crimen => crimen.cuerpo).flat()} />
+        
+        <DetaineeDistribution questionNumber={6} crimenes={allCrimenes} />
 
         </Carousel>
       }
