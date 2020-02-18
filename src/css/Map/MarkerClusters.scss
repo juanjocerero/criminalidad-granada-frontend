@@ -23,27 +23,83 @@
   box-shadow: 2px 2px 2px 1px rgba(116, 141, 154, 0.7);
 }
 
-.cluster-sm {
-  width: 24px!important;
-  height: 24px!important;
-  font-size: 0.9rem!important;
-  font-weight: 400!important;
+@media screen and (max-width: 414px) {
+  .cluster-sm {
+    width: 36px!important;
+    height: 36px!important;
+    font-size: 0.9rem!important;
+    font-weight: 500!important;
+  }
+  
+  .cluster-md {
+    width: 48px!important;
+    height: 48px!important;
+    font-size: 1.2rem;
+  }
+  
+  .cluster-lg {
+    width: 64px!important;
+    height: 64px!important;
+    font-size: 1.4rem;
+  }
+  
+  .cluster-xl {
+    width: 72px!important;
+    height: 72px!important;
+    font-size: 1.6rem;
+  }
 }
 
-.cluster-md {
-  width: 36px!important;
-  height: 36px!important;
-  font-size: 1.2rem;
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  .cluster-sm {
+    width: 36px!important;
+    height: 36px!important;
+    font-size: 0.9rem!important;
+    font-weight: 500!important;
+  }
+  
+  .cluster-md {
+    width: 48px!important;
+    height: 48px!important;
+    font-size: 1.2rem;
+  }
+  
+  .cluster-lg {
+    width: 64px!important;
+    height: 64px!important;
+    font-size: 1.4rem;
+  }
+  
+  .cluster-xl {
+    width: 72px!important;
+    height: 72px!important;
+    font-size: 1.6rem;
+  }
 }
 
-.cluster-lg {
-  width: 48px!important;
-  height: 48px!important;
-  font-size: 1.4rem;
-}
-
-.cluster-xl {
-  width: 64px!important;
-  height: 64px!important;
-  font-size: 1.6rem;
+@media screen and (min-width: 1025px) {
+  .cluster-sm {
+    width: 48px!important;
+    height: 48px!important;
+    font-size: 1rem!important;
+    font-weight: 500!important;
+  }
+  
+  .cluster-md {
+    width: 64px!important;
+    height: 64px!important;
+    font-size: 1.4rem;
+  }
+  
+  .cluster-lg {
+    width: 72px!important;
+    height: 72px!important;
+    font-size: 1.5rem;
+  }
+  
+  .cluster-xl {
+    width: 96px!important;
+    height: 96px!important;
+    font-size: 1.7rem;
+  }
 }
