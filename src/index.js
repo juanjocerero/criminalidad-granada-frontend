@@ -1,3 +1,7 @@
+/*
+An almost static stack: https://medium.com/superhighfives/an-almost-static-stack-6df0a2791319
+*/
+
 import React from 'react';
 import { render } from 'react-snapshot';
 // import ReactDOM from 'react-dom';
