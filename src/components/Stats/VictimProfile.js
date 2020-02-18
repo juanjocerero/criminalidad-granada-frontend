@@ -8,6 +8,7 @@ import '../../css/common.scss';
 
 const { Text } = Typography;
 
+// TODO: fix Infinity% as seen on the tooltip of the sex profile
 const getSexDistribution = victims => {
   const men = [], women = [], valid = [];
   
