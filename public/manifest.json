@@ -1,5 +1,5 @@
 {
-  "short_name": "Criminalidad",
+  "short_name": "Crímenes en Granada",
   "name": "Criminalidad en Granada",
   "icons": [
     {
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#b90021",
-  "background_color": "#ffffff"
+  "theme_color": "#d50019",
+  "background_color": "#748d9a"
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Helmet from 'react-helmet'; 
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Home from './Home';
 import CrimeVizContainer from './CrimeVizContainer';
 import CrimeStats from './CrimeStats';
@@ -10,18 +9,26 @@ require('dotenv').config();
 
 function App() {
   return (
+    <HelmetProvider>
     <div className="App">
-
-      <Helmet title="Criminalidad en Granada" />
-
-      <Switch>
-      <Route path="/" component={Home} exact />
-      <Route path="/map" component={CrimeVizContainer} />
-      <Route path="/stats" component={CrimeStats} />
-      </Switch>
-      
+    
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Criminalidad en Granada</title>
+      <link rel="canonical" href="https://www.ideal.es" />
+      <meta name="description" content="Aplicación para visualizar los crímenes que se cometen en la provincia de Granada, con un mapa en tiempo real y estadísticas y datos para comprenderlos mejor." />
+    </Helmet>
+    
+    <Switch>
+    <Route path="/" component={Home} exact />
+    <Route path="/map" component={CrimeVizContainer} />
+    <Route path="/stats" component={CrimeStats} />
+    </Switch>
+    
     </div>
-  );
-};
-
-export default App;
+    </HelmetProvider>
+    );
+  };
+  
+  export default App;
+  
