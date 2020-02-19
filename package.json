@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@bit/ans.base-ui.button": "^0.1.4",
+    "@merc/react-timeline": "^0.1.42",
     "@nivo/bar": "^0.61.1",
     "@nivo/line": "^0.61.1",
     "@nivo/pie": "^0.61.1",
@@ -35,6 +36,7 @@
     "react-scripts": "3.3.0",
     "react-snapshot": "^1.3.0",
     "react-spinners": "^0.8.0",
+    "styled-components": "^5.0.1",
     "timeago-react": "^3.0.0",
     "timeago.js": "^4.0.2",
     "typescript": "^3.7.5",

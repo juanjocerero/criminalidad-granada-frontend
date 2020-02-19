@@ -4,6 +4,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Home from './Home';
 import CrimeVizContainer from './CrimeVizContainer';
 import CrimeStats from './CrimeStats';
+import TimelineContainer from './TimelineContainer';
 
 require('dotenv').config();
 
@@ -23,6 +24,7 @@ function App() {
     <Route path="/" component={Home} exact />
     <Route path="/map" component={CrimeVizContainer} />
     <Route path="/stats" component={CrimeStats} />
+    <Route path="/timeline" component={TimelineContainer} />
     </Switch>
     
     </div>

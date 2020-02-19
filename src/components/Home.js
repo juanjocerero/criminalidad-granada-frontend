@@ -42,6 +42,12 @@ function Home() {
     </Button>
     </Link>
     
+    <Link to="/timeline">
+    <Button loading={false} icon="MoreHorizontal" size="default" secondary={false} className="intro-screen-button intro-timeline-button">
+    Día a día
+    </Button>
+    </Link>
+    
     </section>
     
     </div>

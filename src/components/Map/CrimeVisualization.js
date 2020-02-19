@@ -84,7 +84,7 @@ const CrimeVisualization = () => {
       <>
       <div className="fullscreen dark-background">
       
-      <ClipLoader css={cssOverride} size={60} color={'#b90021'} loading={isLoading} />
+      <ClipLoader css={cssOverride} size={60} color={'#d50019'} loading={isLoading} />
       
       { !isLoading && crimenes.length && 
         
