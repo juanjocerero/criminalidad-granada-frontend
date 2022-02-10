@@ -23,7 +23,7 @@
     "magic.css": "^1.4.5",
     "mobile-detect": "^1.4.4",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.0",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.13.0",
